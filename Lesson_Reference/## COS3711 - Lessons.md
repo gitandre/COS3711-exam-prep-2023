@@ -1281,14 +1281,6 @@ int main(int argc, char *argv[]) {
 8. **QSortFilterProxyModel**
 
 ---
-## Lesson 4: Validation and Regex
-1. **Purpose of Validators**
-   - Qt’s Support for Validators
-2. **Input Masks**
-   - QLineEdit Input
-3. **Simple Regular Expressions**
-4. **Validators and Regular Expressions Relationship**
-5. **QValidator, QIntValidator, QDoubleValidator, QRegularExpressionValidator**
 
 ## Lesson sections
 
@@ -1859,7 +1851,7 @@ int main(int argc, char *argv[]) {
 
 ---
 
-## Lesson 4: Validation and Regular Expressions
+## Lesson 4: Validation and Regex
 1. **Basics of Input Control and Validation**
    - Know the purpose of validators and Qt’s support for validators
    - Use input masks to control user input - QLineEdit input
