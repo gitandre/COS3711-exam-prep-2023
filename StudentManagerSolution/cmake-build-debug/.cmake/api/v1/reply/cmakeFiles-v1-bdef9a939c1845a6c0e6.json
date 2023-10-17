@@ -895,6 +895,43 @@
 		{
 			"isExternal" : true,
 			"path" : "C:/Qt/6.6.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QWindowsVistaStylePluginAdditionalTargetInfo.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Qt/6.6.0/mingw_64/lib/cmake/Qt6Xml/Qt6XmlConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Qt/6.6.0/mingw_64/lib/cmake/Qt6Xml/Qt6XmlConfigVersionImpl.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Qt/6.6.0/mingw_64/lib/cmake/Qt6Xml/Qt6XmlConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Qt/6.6.0/mingw_64/lib/cmake/Qt6Xml/Qt6XmlDependencies.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Qt/6.6.0/mingw_64/lib/cmake/Qt6Xml/Qt6XmlTargets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Qt/6.6.0/mingw_64/lib/cmake/Qt6Xml/Qt6XmlTargets-relwithdebinfo.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Qt/6.6.0/mingw_64/lib/cmake/Qt6Xml/Qt6XmlAdditionalTargetInfo.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Qt/6.6.0/mingw_64/lib/cmake/Qt6Xml/Qt6XmlVersionlessTargets.cmake"
 		}
 	],
 	"kind" : "cmakeFiles",

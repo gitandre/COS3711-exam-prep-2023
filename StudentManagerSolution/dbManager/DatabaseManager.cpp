@@ -1,47 +1,79 @@
 #include "DatabaseManager.h"
-#include <fstream>
-#include <tinyxml2.h> // Assuming you're using the TinyXML2 library for XML parsing
+#include <QFile>
+#include <string>
 
-DatabaseManager::DatabaseManager() {
-    // Load data from XML files into memory
-    loadData();
-}
+using namespace std;
 
-DatabaseManager::~DatabaseManager() {
-    // Free memory and other cleanup tasks
-    // ...
-}
-
+// Singleton instance
 DatabaseManager& DatabaseManager::getInstance() {
     static DatabaseManager instance;
     return instance;
 }
 
-// CRUD Operations for Students
-Student* DatabaseManager::createStudent(const std::string& name, const std::string& email) {
-    // Create a new Student object and add to the list
-    // ...
-    nextStudentId++;
-    return nullptr; // Placeholder
+// Constructor
+DatabaseManager::DatabaseManager() {
+    xmlPath = "../xml/";
 }
 
-// ... similar CRUD operations for other objects
+void DatabaseManager::createStudent(const QString &name, const QString &email) {
+    // here we will create a new student record
+    // we need to get the last or max id of any existing records and increment it and add
 
-// Relationship Management
-bool DatabaseManager::addStudentToModule(int studentId, int moduleId) {
-    // Implement the logic to add a student to a module
-    return false; // Placeholder
 }
 
-bool DatabaseManager::assignAdvisorToStudent(int advisorId, int studentId) {
-    // Implement the logic to assign an advisor to a student
-    return false; // Placeholder
+void DatabaseManager::readStudent(int id) {
+
 }
 
-void DatabaseManager::loadData() {
-    loadStudentsFromXML();
-    loadAdvisorsFromXML();
-    // ... similar calls for other objects
+void DatabaseManager::updateStudent(int id) {
+
 }
 
-// ... Implement the XML load/save methods
+void DatabaseManager::deleteStudent(int id) {
+
+}
+
+QDomDocument DatabaseManager::getAllRecords(const QString &type) {
+    return {};
+}
+
+QDomElement DatabaseManager::getARecord(const QString &type, int id) {
+    return {};
+}
+
+int DatabaseManager::getNextIdForObject(DatabaseManager::ObjectType objectType) {
+
+    string xmlFilePath = "../xml/";
+
+    switch(objectType){
+        case STUDENT:
+            xmlFilePath = xmlFilePath + "Student.xml";
+            break;
+        case STUDENT_ADVISOR:
+            xmlFilePath = xmlFilePath + "StudentAdvisor.xml";
+            break;
+        case MODULE:
+            xmlFilePath = xmlFilePath + "Module.xml";
+            break;
+        case DEGREE:
+            xmlFilePath = xmlFilePath + "Degree.xml";
+            break;
+        default:
+            break;
+
+    }
+
+    int newId = getNextId(xmlFilePath);
+
+    return newId;
+
+}
+
+int DatabaseManager::getNextId(const string& basicString) {
+
+
+
+
+    return 0;
+}
+

@@ -167,7 +167,7 @@ CMAKE_INSTALL_SYSCONFDIR:PATH=etc
 CMAKE_LINKER:FILEPATH=C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/ld.exe
 
 //make program
-CMAKE_MAKE_PROGRAM:FILEPATH=C:/Program Files/JetBrains/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe
+CMAKE_MAKE_PROGRAM:FILEPATH=C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/ninja/win/x64/ninja.exe
 
 //Flags used by the linker during the creation of modules during
 // all build types.
@@ -309,11 +309,17 @@ Qt6GuiTools_DIR:PATH=C:/Qt/6.6.0/mingw_64/lib/cmake/Qt6GuiTools
 //The directory containing a CMake configuration file for Qt6Gui.
 Qt6Gui_DIR:PATH=C:/Qt/6.6.0/mingw_64/lib/cmake/Qt6Gui
 
+//The directory containing a CMake configuration file for Qt6Qt6Xml.
+Qt6Qt6Xml_DIR:PATH=Qt6Qt6Xml_DIR-NOTFOUND
+
 //The directory containing a CMake configuration file for Qt6WidgetsTools.
 Qt6WidgetsTools_DIR:PATH=C:/Qt/6.6.0/mingw_64/lib/cmake/Qt6WidgetsTools
 
 //The directory containing a CMake configuration file for Qt6Widgets.
 Qt6Widgets_DIR:PATH=C:/Qt/6.6.0/mingw_64/lib/cmake/Qt6Widgets
+
+//The directory containing a CMake configuration file for Qt6Xml.
+Qt6Xml_DIR:PATH=C:/Qt/6.6.0/mingw_64/lib/cmake/Qt6Xml
 
 //The directory containing a CMake configuration file for Qt6ZlibPrivate.
 Qt6ZlibPrivate_DIR:PATH=C:/Qt/6.6.0/mingw_64/lib/cmake/Qt6ZlibPrivate
@@ -696,6 +702,8 @@ QT_FEATURE_dladdr:INTERNAL=OFF
 QT_FEATURE_dlopen:INTERNAL=OFF
 //Qt feature: dockwidget (from target Qt6::Widgets)
 QT_FEATURE_dockwidget:INTERNAL=ON
+//Qt feature: dom (from target Qt6::Xml)
+QT_FEATURE_dom:INTERNAL=ON
 //Qt feature: doubleconversion (from target Qt6::Core)
 QT_FEATURE_doubleconversion:INTERNAL=ON
 //Qt feature: draganddrop (from target Qt6::Gui)

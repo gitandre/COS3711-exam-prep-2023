@@ -12,6 +12,7 @@ find_package(Qt6 COMPONENTS
         Core
         Gui
         Widgets
+        Xml
         REQUIRED)
 
 add_executable(StudentManagerSolution main.cpp
@@ -31,6 +32,7 @@ target_link_libraries(StudentManagerSolution
         Qt::Core
         Qt::Gui
         Qt::Widgets
+        Qt6::Xml
 )
 
 if (WIN32 AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
