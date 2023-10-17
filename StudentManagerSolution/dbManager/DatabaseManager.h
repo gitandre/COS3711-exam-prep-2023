@@ -11,7 +11,7 @@ using namespace std;
 class DatabaseManager {
 public:
 
-    CONST static string XML_PREFIX_PATH = "\"../xml/\""
+    static QString xmlPrefixPath;
     static DatabaseManager& getInstance();
 
     DatabaseManager(const DatabaseManager&) = delete;
@@ -61,6 +61,8 @@ public:
 
     static std::string enumToString(DatabaseManager::ObjectType enumObject);
 
+    string getXmlPrefixPath();
+
 private:
     DatabaseManager();
 
@@ -68,7 +70,9 @@ private:
 
     QString xmlPath;
 
-    static int getNextId(const string &prefixPath, const string &nodeName);
+    static int getNextId(const string &nodeName);
+
+
 };
 
 #endif // DATABASEMANAGER_H

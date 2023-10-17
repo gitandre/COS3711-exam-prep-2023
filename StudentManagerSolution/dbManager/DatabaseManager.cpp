@@ -7,6 +7,8 @@
 
 using namespace std;
 
+ QString DatabaseManager::xmlPrefixPath = QString("../xml/");
+
 // Singleton instance
 DatabaseManager &DatabaseManager::getInstance() {
     static DatabaseManager instance;
@@ -46,8 +48,6 @@ QDomElement DatabaseManager::getARecord(const QString &type, int id) {
 
 [[maybe_unused]] int DatabaseManager::getNextIdForObject(DatabaseManager::ObjectType objectType) {
 
-    string xmlFilePath = "../xml/";
-
     string nodeName;
 
     switch (objectType) {
@@ -68,7 +68,7 @@ QDomElement DatabaseManager::getARecord(const QString &type, int id) {
 
     }
 
-    int newId = getNextId(xmlFilePath, nodeName);
+    int newId = getNextId( nodeName);
 
     return newId;
 
@@ -89,9 +89,9 @@ std::string DatabaseManager::enumToString(DatabaseManager::ObjectType enumObject
     }
 }
 
-int DatabaseManager::getNextId(const string &prefixPath, const string &nodeName) {
+int DatabaseManager::getNextId( const string &nodeName) {
 
-    string filePath = prefixPath + "/" + nodeName + ".xml";
+    string filePath = xmlPrefixPath.toStdString() + "/" + nodeName + ".xml";
     // Convert std string to QString
     QString qtFilePath = QString::fromStdString(filePath);
 //    cout << qtFilePath.toStdString() << endl;
@@ -151,6 +151,7 @@ int DatabaseManager::getNextId(const string &prefixPath, const string &nodeName)
 
     return maxId + 1;  // return the next available ID
 }
+
 
 
 
