@@ -1,7 +1,9 @@
 #include "DatabaseManager.h"
+
 #include <QFile>
 #include <QDebug>
 #include <QXmlStreamReader>
+
 
 using namespace std;
 
@@ -16,10 +18,100 @@ DatabaseManager &DatabaseManager::getInstance() {
 // Constructor
 DatabaseManager::DatabaseManager() = default;
 
-void DatabaseManager::createStudent(const QString &name, const QString &email) {
-    // here we will create a new student record
-    // we need to get the last or max id of any existing records and increment it and add
+QString DatabaseManager::getXmlpathForObject(SolutionObjectType enumObject) {
 
+    QString enumString = enumToString(enumObject);
+    QString fullxmlpath = xmlPrefixPath + enumString + ".xml";
+
+    return fullxmlpath;
+}
+
+bool DatabaseManager::createNew(Advisor p_advisor) {
+
+    QString name = p_advisor.getName();
+    QString email = p_advisor.getName();
+    auto enumObject = p_advisor.getObjectType();
+    bool res = createXML(name, email, enumObject, "Advisor");
+    return res;
+}
+
+bool DatabaseManager::createNew(Student p_student) {
+    QString name = p_student.getName();
+    QString email = p_student.getName();
+    auto enumObject = p_student.getObjectType();
+    bool res = createXML(name, email, enumObject, "Student");
+    return res;
+}
+
+bool DatabaseManager::createXML(QString name, QString email, SolutionObjectType enumObject, QString friendlyName) {
+    bool result = false;
+    try {
+
+        qDebug() << "-----------------------------";
+        qDebug() << name;
+        qDebug() << email;
+        qDebug() << enumObject;
+        qDebug() << friendlyName;
+        qDebug() << "-----------------------------";
+
+        int newId = getNextIdForObject(enumObject);
+        qDebug() << newId;
+
+        QString fullXmlPath = getXmlpathForObject(enumObject);
+        qDebug() << fullXmlPath;
+
+        QFile xmlFileReader(fullXmlPath);
+        if (!xmlFileReader.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            qDebug() << "Couldn't open file.";
+            return -1;
+        }
+
+        QDomDocument qDoc;
+        qDoc.setContent(&xmlFileReader);
+
+        xmlFileReader.close();
+
+        // get the root
+        QDomElement root = qDoc.documentElement();
+
+        //Create student elements and set id
+        QDomElement newStudentElement = qDoc.createElement(friendlyName);
+        newStudentElement.setAttribute("id", newId);
+
+        //Create name elements and set name
+        QDomElement studentNameElement = qDoc.createElement("Name");
+        QDomText studentTextName = qDoc.createTextNode(name);
+        studentNameElement.appendChild(studentTextName);
+
+        //Create email elements and set email
+        QDomElement studentEmailElement = qDoc.createElement("Email");
+        QDomText studentTextEmail = qDoc.createTextNode(email);
+        studentEmailElement.appendChild(studentTextEmail);
+
+        // append to newStudentElement
+        newStudentElement.appendChild(studentNameElement);
+        newStudentElement.appendChild(studentEmailElement);
+
+        //Add to root
+        root.appendChild(newStudentElement);
+
+        QFile outFile(fullXmlPath);
+        if (!outFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
+            qDebug() << "Couldn't open file for writing.";
+            return -1;
+        }
+
+        QTextStream stream(&outFile);
+        stream << qDoc.toString();
+        outFile.close();
+
+        result = true;
+    } catch (...) {
+        result = false;
+        std::cerr << "Caught unknown exception" << std::endl;
+    }
+
+    return result;
 }
 
 void DatabaseManager::readStudent(int id) {
@@ -42,7 +134,7 @@ QDomElement DatabaseManager::getARecord(const QString &type, int id) {
     return {};
 }
 
-[[maybe_unused]] int DatabaseManager::getNextIdForObject(DatabaseManager::ObjectType objectType) {
+[[maybe_unused]] int DatabaseManager::getNextIdForObject(SolutionObjectType objectType) {
 
     QString nodeName;
 
@@ -70,16 +162,16 @@ QDomElement DatabaseManager::getARecord(const QString &type, int id) {
 
 }
 
-QString DatabaseManager::enumToString(DatabaseManager::ObjectType enumObject) {
+QString DatabaseManager::enumToString(SolutionObjectType enumObject) {
 
     switch (enumObject) {
-        case DatabaseManager::ObjectType::STUDENT:
+        case SolutionObjectType::STUDENT:
             return {"Student"};
-        case DatabaseManager::ObjectType::ADVISOR:
-            return {"Advisor"};
-        case DatabaseManager::ObjectType::MODULE:
+        case SolutionObjectType::ADVISOR:
+            return {"Student"};
+        case SolutionObjectType::MODULE:
             return {"Module"};
-        case DatabaseManager::ObjectType::DEGREE:
+        case SolutionObjectType::DEGREE:
             return {"Degree"};
         default:
             return {"Unknown"};

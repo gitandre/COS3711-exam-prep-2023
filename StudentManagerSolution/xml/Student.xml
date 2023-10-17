@@ -1,11 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <Students>
-    <Student id="100">
-        <Name>John Doe</Name>
-        <Email>john.doe@example.com</Email>
-    </Student>
-    <Student id="101">
-        <Name>Jane Doe</Name>
-        <Email>jane.doe@example.com</Email>
-    </Student>
+ <Student id="100">
+  <Name>John Doe</Name>
+  <Email>john.doe@example.com</Email>
+ </Student>
+ <Student id="101">
+  <Name>Jane Doe</Name>
+  <Email>jane.doe@example.com</Email>
+ </Student>
+ <Advisor id="102">
+  <Name>Addy Bloggs</Name>
+  <Email>Addy Bloggs</Email>
+ </Advisor>
+ <Student id="102">
+  <Name>Bloo</Name>
+  <Email>Bloo</Email>
+ </Student>
+ <Advisor id="103">
+  <Name>Addy Bloggs</Name>
+  <Email>Addy Bloggs</Email>
+ </Advisor>
+ <Student id="103">
+  <Name>Bloo</Name>
+  <Email>Bloo</Email>
+ </Student>
+ <Advisor id="104">
+  <Name>Addy Bloggs</Name>
+  <Email>Addy Bloggs</Email>
+ </Advisor>
+ <Student id="104">
+  <Name>Bloo</Name>
+  <Email>Bloo</Email>
+ </Student>
 </Students>

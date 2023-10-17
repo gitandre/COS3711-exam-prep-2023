@@ -18,7 +18,7 @@ This project aims to create a student management system using C++ and Qt6. The s
     - `DatabaseManager.cpp`: Implementation file for the DatabaseManager class
 - `xml/`
     - `Student.xml`: XML file for storing student records
-    - `Advisor.xml`: XML file for storing student advisor records
+    - `Student.xml`: XML file for storing student advisor records
     - `Module.xml`: XML file for storing module records
     - `Degree.xml`: XML file for storing degree records
 

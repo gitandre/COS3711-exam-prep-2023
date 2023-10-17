@@ -20,14 +20,15 @@ add_executable(StudentManagerSolution main.cpp
         Student.h
         Person.cpp
         Person.h
-        StudentAdvisor.cpp
-        StudentAdvisor.h
+        Advisor.cpp
+        Advisor.h
         Degree.cpp
         Degree.h
         Module.cpp
         Module.h
         dbManager/DatabaseManager.cpp
-        dbManager/DatabaseManager.h)
+        dbManager/DatabaseManager.h
+        SolutionObjectType.h)
 target_link_libraries(StudentManagerSolution
         Qt::Core
         Qt::Gui

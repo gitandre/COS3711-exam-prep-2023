@@ -4,6 +4,9 @@
 #include <QString>
 #include <QtXml/QDomDocument>
 #include <iostream>
+#include "../SolutionObjectType.h"
+#include "../Advisor.h"
+#include "../Student.h"
 
 using namespace std;
 
@@ -17,16 +20,7 @@ public:
 
     DatabaseManager(const DatabaseManager &) = delete;
 
-    enum ObjectType {
-        STUDENT,
-        ADVISOR,
-        MODULE,
-        DEGREE,
-        COUNT
-    };
-
     // CRUD for Student
-    void createStudent(const QString &name, const QString &email);
 
     void readStudent(int id);
 
@@ -61,9 +55,13 @@ public:
     // Get a record by ID
     QDomElement getARecord(const QString &type, int id);
 
-    [[maybe_unused]] static int getNextIdForObject(DatabaseManager::ObjectType objectType);
+    [[maybe_unused]] static int getNextIdForObject(SolutionObjectType objectType);
 
-    static QString enumToString(DatabaseManager::ObjectType enumObject);
+    static QString enumToString(SolutionObjectType enumObject);
+
+    bool createNew(Advisor p_advisor);
+    bool createNew(Student p_student);
+    bool createXML(QString name, QString email, SolutionObjectType enumObject, QString friendlyName);
 
 private:
     DatabaseManager();
@@ -71,6 +69,9 @@ private:
     void operator=(const DatabaseManager &) = delete;
 
     static int getNextId(const QString &nodeName);
+
+
+    QString getXmlpathForObject(SolutionObjectType enumObject);
 
 
 };

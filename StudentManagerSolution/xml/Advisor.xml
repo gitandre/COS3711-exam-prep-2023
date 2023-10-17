@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Advisors>
-    <Advisor id="200">
-        <Name>Advisor One</Name>
+    <Student id="200">
+        <Name>Student One</Name>
         <Email>advisor.one@example.com</Email>
-    </Advisor>
-    <Advisor id="201">
-        <Name>Advisor Two</Name>
+    </Student>
+    <Student id="201">
+        <Name>Student Two</Name>
         <Email>advisor.two@example.com</Email>
-    </Advisor>
+    </Student>
 </Advisors>
