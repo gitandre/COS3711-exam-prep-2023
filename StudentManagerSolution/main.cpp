@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
     // instantiate the singleton dbManager and create an alias or reference using the '&'
     DatabaseManager &dbManager = DatabaseManager::getInstance();
 
-    // For all object types get the next id
+    // For all object types get the next id (Students, Advisors, Modules, Degrees)
     for (int i = 0; i < DatabaseManager::COUNT; ++i) {
         auto objectType = static_cast<DatabaseManager::ObjectType>(i);
         string enumString = DatabaseManager::enumToString(objectType);

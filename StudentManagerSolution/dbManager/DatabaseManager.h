@@ -10,6 +10,8 @@ using namespace std;
 // As a singleton :) vs simpleton :0
 class DatabaseManager {
 public:
+
+    CONST static string XML_PREFIX_PATH = "\"../xml/\""
     static DatabaseManager& getInstance();
 
     DatabaseManager(const DatabaseManager&) = delete;
