@@ -3,7 +3,6 @@
 
 #include <QString>
 #include <QtXml/QDomDocument>
-#include <string>
 #include <iostream>
 
 using namespace std;

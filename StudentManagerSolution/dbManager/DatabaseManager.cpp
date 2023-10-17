@@ -1,9 +1,7 @@
 #include "DatabaseManager.h"
 #include <QFile>
-#include <string>
 #include <QDebug>
 #include <QXmlStreamReader>
-#include <iostream>
 
 using namespace std;
 
@@ -73,6 +71,7 @@ QDomElement DatabaseManager::getARecord(const QString &type, int id) {
 }
 
 QString DatabaseManager::enumToString(DatabaseManager::ObjectType enumObject) {
+
     switch (enumObject) {
         case DatabaseManager::ObjectType::STUDENT:
             return {"Student"};

@@ -2,13 +2,16 @@
 #include <QPushButton>
 #include "dbManager/DatabaseManager.h"
 #include <iostream>
+#include <QMainWindow>
+#include <QStatusBar>
 
 using namespace std;
 
 bool startDatabaseManager() {// instantiate the singleton dbManager and create an alias or reference using the '&'
 
     bool result = false;
-    DatabaseManager &dbManager = DatabaseManager::getInstance();
+
+    DatabaseManager::getInstance(); // instantiate singleton
 
     int dbCounter = 0;
     // For all object types get the next id (Students, Advisors, Modules, Degrees)
@@ -39,11 +42,19 @@ bool startDatabaseManager() {// instantiate the singleton dbManager and create a
 
 int main(int argc, char *argv[]) {
 
-    if(startDatabaseManager()){
+    if (startDatabaseManager()) {
+
         QApplication a(argc, argv);
-        QPushButton button("Hello world!", nullptr);
-        button.resize(200, 100);
-        button.show();
+
+        // Set mainWindow stuff
+        QMainWindow mainWindow;
+        mainWindow.setWindowTitle("Student Manager Solution");
+        mainWindow.statusBar()->showMessage("Success: DatabaseManager started OK", 5000);
+        mainWindow.resize(800, 600);
+        mainWindow.show();
+
         return QApplication::exec();
+    } else {
+        return -1;
     }
 }
