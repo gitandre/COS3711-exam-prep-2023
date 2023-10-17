@@ -7,7 +7,7 @@
 
 using namespace std;
 
- QString DatabaseManager::xmlPrefixPath = QString("../xml/");
+QString DatabaseManager::xmlPrefixPath = QString("../xml/");
 
 // Singleton instance
 DatabaseManager &DatabaseManager::getInstance() {
@@ -16,9 +16,7 @@ DatabaseManager &DatabaseManager::getInstance() {
 }
 
 // Constructor
-DatabaseManager::DatabaseManager() {
-    xmlPath = "../xml/";
-}
+DatabaseManager::DatabaseManager() = default;
 
 void DatabaseManager::createStudent(const QString &name, const QString &email) {
     // here we will create a new student record
@@ -48,7 +46,7 @@ QDomElement DatabaseManager::getARecord(const QString &type, int id) {
 
 [[maybe_unused]] int DatabaseManager::getNextIdForObject(DatabaseManager::ObjectType objectType) {
 
-    string nodeName;
+    QString nodeName;
 
     switch (objectType) {
         case STUDENT:
@@ -68,48 +66,42 @@ QDomElement DatabaseManager::getARecord(const QString &type, int id) {
 
     }
 
-    int newId = getNextId( nodeName);
+    int newId = getNextId(nodeName);
 
     return newId;
 
 }
 
-std::string DatabaseManager::enumToString(DatabaseManager::ObjectType enumObject) {
+QString DatabaseManager::enumToString(DatabaseManager::ObjectType enumObject) {
     switch (enumObject) {
         case DatabaseManager::ObjectType::STUDENT:
-            return "Student";
+            return {"Student"};
         case DatabaseManager::ObjectType::ADVISOR:
-            return "Advisor";
+            return {"Advisor"};
         case DatabaseManager::ObjectType::MODULE:
-            return "Module";
+            return {"Module"};
         case DatabaseManager::ObjectType::DEGREE:
-            return "Degree";
+            return {"Degree"};
         default:
-            return "Unknown";
+            return {"Unknown"};
     }
 }
 
-int DatabaseManager::getNextId( const string &nodeName) {
+int DatabaseManager::getNextId(const QString &nodeName) {
 
-    string filePath = xmlPrefixPath.toStdString() + "/" + nodeName + ".xml";
+    QString filePath = xmlPrefixPath + "/" + nodeName + ".xml";
     // Convert std string to QString
-    QString qtFilePath = QString::fromStdString(filePath);
-//    cout << qtFilePath.toStdString() << endl;
 
     // Get and open Qfile
-    QFile xmLfile(qtFilePath);
+    QFile xmLfile(filePath);
     if (!xmLfile.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qWarning() << "Couldn't open the XML file.";
         return -1;
     }
 
-//    cout << "File opened OK" << endl;
-
     // Instantiate QXmlStreamReader with a reference to the
     QXmlStreamReader xml(&xmLfile);
     int maxId = 0;
-
-//    cout << "QXmlStreamReader instantiate OK" << endl;
 
 
     // Loop until the end of the XML file or until an error is encountered
@@ -120,7 +112,7 @@ int DatabaseManager::getNextId( const string &nodeName) {
         // Check if the token is a StartElement (e.g., <Student>)
         if (token == QXmlStreamReader::StartElement) {
             // Check if the element name matches the target node name (e.g., "Student")
-            if (xml.name() == QString::fromStdString(nodeName)) {
+            if (xml.name() == nodeName) {
                 // Retrieve all attributes of the current StartElement
                 QXmlStreamAttributes attributes = xml.attributes();
 
