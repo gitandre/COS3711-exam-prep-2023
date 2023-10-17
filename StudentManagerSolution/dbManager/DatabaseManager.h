@@ -3,6 +3,9 @@
 
 #include <QString>
 #include <QtXml/QDomDocument>
+#include <string>
+#include <iostream>
+using namespace std;
 
 // As a singleton :) vs simpleton :0
 class DatabaseManager {
@@ -13,9 +16,10 @@ public:
 
     enum ObjectType {
         STUDENT,
-        STUDENT_ADVISOR,
+        ADVISOR,
         MODULE,
-        DEGREE
+        DEGREE,
+        COUNT
     };
 
     // CRUD for Student
@@ -51,6 +55,10 @@ public:
     // Get a record by ID
     QDomElement getARecord(const QString& type, int id);
 
+    [[maybe_unused]] static int getNextIdForObject(DatabaseManager::ObjectType objectType);
+
+    static std::string enumToString(DatabaseManager::ObjectType enumObject);
+
 private:
     DatabaseManager();
 
@@ -58,9 +66,7 @@ private:
 
     QString xmlPath;
 
-    static int getNextIdForObject(DatabaseManager::ObjectType objectType);
-
-    static int getNextId(const std::string& basicString);
+    static int getNextId(const string &prefixPath, const string &nodeName);
 };
 
 #endif // DATABASEMANAGER_H

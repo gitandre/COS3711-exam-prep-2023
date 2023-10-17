@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Degrees>
-    <Degree id="1">
+    <Degree id="1000">
         <Name>Computer Science</Name>
         <Duration>4</Duration>
     </Degree>
-    <Degree id="2">
+    <Degree id="1001">
         <Name>Biology</Name>
         <Duration>3</Duration>
     </Degree>

@@ -1,11 +1,14 @@
 #include "DatabaseManager.h"
 #include <QFile>
 #include <string>
+#include <QDebug>
+#include <QXmlStreamReader>
+#include <iostream>
 
 using namespace std;
 
 // Singleton instance
-DatabaseManager& DatabaseManager::getInstance() {
+DatabaseManager &DatabaseManager::getInstance() {
     static DatabaseManager instance;
     return instance;
 }
@@ -41,39 +44,113 @@ QDomElement DatabaseManager::getARecord(const QString &type, int id) {
     return {};
 }
 
-int DatabaseManager::getNextIdForObject(DatabaseManager::ObjectType objectType) {
+[[maybe_unused]] int DatabaseManager::getNextIdForObject(DatabaseManager::ObjectType objectType) {
 
     string xmlFilePath = "../xml/";
 
-    switch(objectType){
+    string nodeName;
+
+    switch (objectType) {
         case STUDENT:
-            xmlFilePath = xmlFilePath + "Student.xml";
+            nodeName = DatabaseManager::enumToString(objectType);
             break;
-        case STUDENT_ADVISOR:
-            xmlFilePath = xmlFilePath + "StudentAdvisor.xml";
+        case ADVISOR:
+            nodeName = DatabaseManager::enumToString(objectType);
             break;
         case MODULE:
-            xmlFilePath = xmlFilePath + "Module.xml";
+            nodeName = DatabaseManager::enumToString(objectType);
             break;
         case DEGREE:
-            xmlFilePath = xmlFilePath + "Degree.xml";
+            nodeName = DatabaseManager::enumToString(objectType);
             break;
         default:
             break;
 
     }
 
-    int newId = getNextId(xmlFilePath);
+    int newId = getNextId(xmlFilePath, nodeName);
 
     return newId;
 
 }
 
-int DatabaseManager::getNextId(const string& basicString) {
-
-
-
-
-    return 0;
+std::string DatabaseManager::enumToString(DatabaseManager::ObjectType enumObject) {
+    switch (enumObject) {
+        case DatabaseManager::ObjectType::STUDENT:
+            return "Student";
+        case DatabaseManager::ObjectType::ADVISOR:
+            return "Advisor";
+        case DatabaseManager::ObjectType::MODULE:
+            return "Module";
+        case DatabaseManager::ObjectType::DEGREE:
+            return "Degree";
+        default:
+            return "Unknown";
+    }
 }
+
+int DatabaseManager::getNextId(const string &prefixPath, const string &nodeName) {
+
+    string filePath = prefixPath + "/" + nodeName + ".xml";
+    // Convert std string to QString
+    QString qtFilePath = QString::fromStdString(filePath);
+//    cout << qtFilePath.toStdString() << endl;
+
+    // Get and open Qfile
+    QFile xmLfile(qtFilePath);
+    if (!xmLfile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qWarning() << "Couldn't open the XML file.";
+        return -1;
+    }
+
+//    cout << "File opened OK" << endl;
+
+    // Instantiate QXmlStreamReader with a reference to the
+    QXmlStreamReader xml(&xmLfile);
+    int maxId = 0;
+
+//    cout << "QXmlStreamReader instantiate OK" << endl;
+
+
+    // Loop until the end of the XML file or until an error is encountered
+    while (!xml.atEnd() && !xml.hasError()) {
+        // Read the next XML token (could be StartElement, EndElement, Characters, etc.)
+        QXmlStreamReader::TokenType token = xml.readNext();
+
+        // Check if the token is a StartElement (e.g., <Student>)
+        if (token == QXmlStreamReader::StartElement) {
+            // Check if the element name matches the target node name (e.g., "Student")
+            if (xml.name() == QString::fromStdString(nodeName)) {
+                // Retrieve all attributes of the current StartElement
+                QXmlStreamAttributes attributes = xml.attributes();
+
+                // Check if the element has an attribute named "id"
+                if (attributes.hasAttribute("id")) {
+                    // Declare a boolean variable to check the success of the conversion
+                    bool ok;
+
+                    // Convert the "id" attribute value to an integer
+                    int id = attributes.value("id").toInt(&ok);
+
+                    // Check if the conversion was successful and if the new id is greater than maxId
+                    if (ok && id > maxId) {
+                        // Update maxId with the new greater id value
+                        maxId = id;
+                    }
+                }
+            }
+        }
+    }
+
+
+    if (xml.hasError()) {
+        qWarning() << "XML error: " << xml.errorString();
+    }
+
+    xmLfile.close();
+
+    return maxId + 1;  // return the next available ID
+}
+
+
 
