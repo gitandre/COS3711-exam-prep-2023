@@ -1,0 +1,14 @@
+//
+// Created by User on 10/17/2023.
+//
+
+#ifndef STUDENTMANAGERSOLUTION_DEGREE_H
+#define STUDENTMANAGERSOLUTION_DEGREE_H
+
+
+class Degree {
+
+};
+
+
+#endif //STUDENTMANAGERSOLUTION_DEGREE_H

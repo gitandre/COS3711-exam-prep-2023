@@ -1,0 +1,19 @@
+# ninja log v5
+547	778	7192316987231320	CMakeFiles/untitled.dir/untitled_autogen/mocs_compilation.cpp.obj	4b6603540218c52
+3	545	7192316983992528	untitled_autogen/timestamp	8250f0d220d13df0
+3	545	7192316983992528	untitled_autogen/mocs_compilation.cpp	8250f0d220d13df0
+3	545	7192316983992528	C:/Users/User/Dropbox/bsc2023/a_next/COS3711-AdvancedProgramming/gitrepo/COS3711-exam-prep-2023/c++_fundamentals/untitled/cmake-build-debug/untitled_autogen/mocs_compilation.cpp	8250f0d220d13df0
+3	545	7192316983992528	C:/Users/User/Dropbox/bsc2023/a_next/COS3711-AdvancedProgramming/gitrepo/COS3711-exam-prep-2023/c++_fundamentals/untitled/cmake-build-debug/untitled_autogen/timestamp	8250f0d220d13df0
+557	4391	7192317023652376	CMakeFiles/untitled.dir/main.cpp.obj	64c9621762ce86c1
+170	7044	7192317518485810	build.ninja	4fe2e604def6e8fd
+1	77	0	CMakeFiles/clean.additional	6be65e29fb7584cf
+78	105	0	clean	567f01a6bad3308b
+2	231	0	CMakeFiles/clean.additional	6be65e29fb7584cf
+232	273	0	clean	567f01a6bad3308b
+17	3260	7192317637792568	untitled_autogen/timestamp	8250f0d220d13df0
+17	3260	7192317637792568	untitled_autogen/mocs_compilation.cpp	8250f0d220d13df0
+17	3260	7192317637792568	C:/Users/User/Dropbox/bsc2023/a_next/COS3711-AdvancedProgramming/gitrepo/COS3711-exam-prep-2023/c++_fundamentals/untitled/cmake-build-debug/untitled_autogen/timestamp	8250f0d220d13df0
+17	3260	7192317637792568	C:/Users/User/Dropbox/bsc2023/a_next/COS3711-AdvancedProgramming/gitrepo/COS3711-exam-prep-2023/c++_fundamentals/untitled/cmake-build-debug/untitled_autogen/mocs_compilation.cpp	8250f0d220d13df0
+3270	3453	7192317641162578	CMakeFiles/untitled.dir/untitled_autogen/mocs_compilation.cpp.obj	4b6603540218c52
+3261	7422	7192317680974228	CMakeFiles/untitled.dir/main.cpp.obj	64c9621762ce86c1
+7423	8728	7192317685074223	untitled.exe	6e8c663368ac6a2d

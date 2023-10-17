@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Modules>
+    <Module id="1">
+        <Name>Data Structures</Name>
+        <Credits>4</Credits>
+        <DegreeIds>
+            <DegreeId>1</DegreeId>
+        </DegreeIds>
+    </Module>
+    <Module id="2">
+        <Name>Algorithms</Name>
+        <Credits>3</Credits>
+        <DegreeIds>
+            <DegreeId>1</DegreeId>
+        </DegreeIds>
+    </Module>
+    <Module id="3">
+        <Name>Genetics</Name>
+        <Credits>4</Credits>
+        <DegreeIds>
+            <DegreeId>2</DegreeId>
+        </DegreeIds>
+    </Module>
+    <Module id="4">
+        <Name>Ecology</Name>
+        <Credits>3</Credits>
+        <DegreeIds>
+            <DegreeId>2</DegreeId>
+        </DegreeIds>
+    </Module>
+    <Module id="5">
+        <Name>Statistics</Name>
+        <Credits>2</Credits>
+        <DegreeIds>
+            <DegreeId>1</DegreeId>
+            <DegreeId>2</DegreeId>
+        </DegreeIds>
+    </Module>
+</Modules>

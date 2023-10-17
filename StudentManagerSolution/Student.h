@@ -1,0 +1,14 @@
+//
+// Created by User on 10/17/2023.
+//
+
+#ifndef STUDENTMANAGERSOLUTION_STUDENT_H
+#define STUDENTMANAGERSOLUTION_STUDENT_H
+
+
+class Student {
+
+};
+
+
+#endif //STUDENTMANAGERSOLUTION_STUDENT_H

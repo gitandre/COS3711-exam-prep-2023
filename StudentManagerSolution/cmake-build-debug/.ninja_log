@@ -1,0 +1,8 @@
+# ninja log v5
+3	566	7192320207547142	StudentManagerSolution_autogen/timestamp	1679b039acc2ea44
+3	566	7192320207547142	StudentManagerSolution_autogen/mocs_compilation.cpp	1679b039acc2ea44
+3	566	7192320207547142	C:/Users/User/Dropbox/bsc2023/a_next/COS3711-AdvancedProgramming/gitrepo/COS3711-exam-prep-2023/StudentManagerSolution/cmake-build-debug/StudentManagerSolution_autogen/timestamp	1679b039acc2ea44
+3	566	7192320207547142	C:/Users/User/Dropbox/bsc2023/a_next/COS3711-AdvancedProgramming/gitrepo/COS3711-exam-prep-2023/StudentManagerSolution/cmake-build-debug/StudentManagerSolution_autogen/mocs_compilation.cpp	1679b039acc2ea44
+4221	4967	7192320249377259	StudentManagerSolution.exe	1c0df8d697712502
+567	766	7192320210762579	CMakeFiles/StudentManagerSolution.dir/StudentManagerSolution_autogen/mocs_compilation.cpp.obj	801e7eb203b316e3
+575	4214	7192320245547276	CMakeFiles/StudentManagerSolution.dir/main.cpp.obj	72acae1bf77f3091
