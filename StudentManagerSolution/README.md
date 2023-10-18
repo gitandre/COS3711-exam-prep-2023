@@ -1,3 +1,7 @@
+![img_1.png](images/img_1.png)
+
+---
+
 # Student Manager Solution
 
 ## Description
@@ -36,3 +40,5 @@ This project aims to create a student management system using C++ and Qt6. The s
 - Add a GUI using Qt6 Widgets.
 - more coming soon...
 
+---
+![img_2.png](images/img_2.png)
