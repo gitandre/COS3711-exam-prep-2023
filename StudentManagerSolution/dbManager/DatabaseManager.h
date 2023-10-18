@@ -61,7 +61,7 @@ public:
 
     bool createNew(Advisor p_advisor);
     bool createNew(Student p_student);
-    bool createXML(QString name, QString email, SolutionObjectType enumObject, QString friendlyName);
+    bool createXML(QString name, QString email, SolutionObjectType enumObject);
 
 private:
     DatabaseManager();

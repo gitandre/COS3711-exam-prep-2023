@@ -32,7 +32,7 @@ bool DatabaseManager::createNew(Advisor p_advisor) {
     QString name = p_advisor.getName();
     QString email = p_advisor.getEmail();
     auto enumObject = p_advisor.getObjectType();
-    bool res = createXML(name, email, enumObject, "Advisor");
+    bool res = createXML(name, email, enumObject);
     return res;
 }
 
@@ -40,11 +40,11 @@ bool DatabaseManager::createNew(Student p_student) {
     QString name = p_student.getName();
     QString email = p_student.getEmail();
     auto enumObject = p_student.getObjectType();
-    bool res = createXML(name, email, enumObject, "Student");
+    bool res = createXML(name, email, enumObject);
     return res;
 }
 
-bool DatabaseManager::createXML(QString name, QString email, SolutionObjectType enumObject, QString friendlyName) {
+bool DatabaseManager::createXML(QString name, QString email, SolutionObjectType enumObject) {
     bool result = false;
     try {
 
@@ -52,7 +52,6 @@ bool DatabaseManager::createXML(QString name, QString email, SolutionObjectType 
         qDebug() << name;
         qDebug() << email;
         qDebug() << enumObject;
-        qDebug() << friendlyName;
         qDebug() << "-----------------------------";
 
         int newId = getNextIdForObject(enumObject);
@@ -61,6 +60,8 @@ bool DatabaseManager::createXML(QString name, QString email, SolutionObjectType 
         QString fullXmlPath = getXmlpathForObject(enumObject);
         qDebug() << fullXmlPath;
 
+        QString friendname = enumToString(enumObject);
+        qDebug() << friendname;
         QFile xmlFileReader(fullXmlPath);
         if (!xmlFileReader.open(QIODevice::ReadOnly | QIODevice::Text)) {
             qDebug() << "Couldn't open file.";
@@ -76,7 +77,7 @@ bool DatabaseManager::createXML(QString name, QString email, SolutionObjectType 
         QDomElement root = qDoc.documentElement();
 
         //Create student elements and set id
-        QDomElement newStudentElement = qDoc.createElement(friendlyName);
+        QDomElement newStudentElement = qDoc.createElement(friendname);
         newStudentElement.setAttribute("id", newId);
 
         //Create name elements and set name
