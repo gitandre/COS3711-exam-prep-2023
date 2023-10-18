@@ -9,6 +9,8 @@
 #include <QDebug>
 #include <QMessageBox>
 #include "SolutionObjectType.h"
+#include <QString>
+
 using namespace std;
 
 bool startDatabaseManager() {// instantiate the singleton dbManager and create an alias or reference using the '&'
@@ -49,7 +51,9 @@ bool startDatabaseManager() {// instantiate the singleton dbManager and create a
 bool testing( QMainWindow &mainWindow) {// testing Student and Student
 
     bool res = false;
-    Advisor a1("Addy Bloggs", "addy@test.com");
+
+
+    Advisor a1("Advisor One", "advisor_one@test.com");
     a1.setObjectName("a1");
     cout << a1.objectName().toStdString() << endl;
     cout << a1.getId() << endl;
@@ -66,7 +70,10 @@ bool testing( QMainWindow &mainWindow) {// testing Student and Student
     }
 
     if(res){
-        Student s1("Bloo", "Bloo@test.com");
+        Student s0;
+        s0.setObjectName("default constructor student");
+
+        Student s1("Student One", "student_one@test.com");
         s1.setObjectName("s1");
         cout << s1.objectName().toStdString() << endl;
 

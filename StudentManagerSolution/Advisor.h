@@ -6,14 +6,19 @@
 #define AdvisorMANAGERSOLUTION_ADVISOR_H
 
 #include "Person.h"
+#include "QDebug"
 
 class Advisor : public Person {
 Q_OBJECT
 
 public:
-    Advisor() = default;
+    Advisor() {
+        qInfo() << "Advisor constructed with default";
+    }
 
-    explicit Advisor(QString name = "", QString email = "", int id = -1) : Person(id, name, email) {}
+    explicit Advisor(QString name, QString email, int id = -1) : Person(id, name, email) {
+        qInfo() << "Advisor " << this->getName() << " constructed with params";
+    }
 
     SolutionObjectType getObjectType() override {
         return objectType;

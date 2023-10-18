@@ -14,7 +14,7 @@
 class Person: public QObject {
     Q_OBJECT
 public:
-    Person(){
+    Person(QObject* parent=nullptr){
         qInfo() << "Person constructed using default";
     }
     Person(int p_id, QString p_name, QString p_email): id(p_id), name(p_name), email(p_email){

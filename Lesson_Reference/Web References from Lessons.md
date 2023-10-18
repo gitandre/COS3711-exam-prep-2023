@@ -70,7 +70,7 @@
 #### B. Using QVariant, QMetaType, and Q_ENUM
 
 [VoidRealms Qt 88 - User Feedback QVariant - vid](https://youtu.be/iD5R3-z3u78)📺  
-[C++ QT 109 - Q_ENUM and how to switch on a string - vid](https://youtu.be/iD5R3-z3u78)📺  
+[C++ QT 109 - Q_ENUM and how to switch on a string - vid](https://youtu.be/Fr6BDQD68ZE?si=WK2k7-myCjKWzHe-)📺  
 
 ### C. Static variables
 

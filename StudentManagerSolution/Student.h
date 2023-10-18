@@ -9,14 +9,19 @@
 
 #include "Person.h"
 #include "SolutionObjectType.h"
+#include "QDebug"
 
 class Student : public Person {
 Q_OBJECT
 
 public:
-    Student() = default;
+    Student() {
+        qInfo() << "Student constructed with default";
+    }
 
-    explicit Student(QString name = "", QString email = "", int id = -1) : Person(id, name, email) {}
+    explicit Student(QString name, QString email, int id=-1 ) : Person(id, name, email) {
+        qInfo() << "Student " << this->getName() << " constructed with params";
+    }
 
     SolutionObjectType getObjectType() override {
         return objectType;

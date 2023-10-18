@@ -27,19 +27,19 @@ QString DatabaseManager::getXmlpathForObject(SolutionObjectType enumObject) {
     return fullxmlpath;
 }
 
-bool DatabaseManager::createNew(Advisor *p_advisor) { // &ddress passed in but receivers a pointer *
+//bool DatabaseManager::createNew(Advisor *p_advisor) { // &ddress passed in but receivers a pointer *
+//
+//    QString name = p_advisor->getName();
+//    QString email = p_advisor->getEmail();
+//    auto enumObject = p_advisor->getObjectType();
+//    bool res = createXML(name, email, enumObject);
+//    return res;
+//}
 
-    QString name = p_advisor->getName();
-    QString email = p_advisor->getEmail();
-    auto enumObject = p_advisor->getObjectType();
-    bool res = createXML(name, email, enumObject);
-    return res;
-}
-
-bool DatabaseManager::createNew(Student *p_student) {// &ddress passed in but receivers a pointer *
-    QString name = p_student->getName();
-    QString email = p_student->getEmail();
-    auto enumObject = p_student->getObjectType();
+bool DatabaseManager::createNew(Person* p_person) {// &ddress passed in but receivers a pointer *
+    QString name = p_person->getName();
+    QString email = p_person->getEmail();
+    auto enumObject = p_person->getObjectType();
     bool res = createXML(name, email, enumObject);
     return res;
 }

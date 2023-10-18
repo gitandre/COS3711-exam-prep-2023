@@ -3,7 +3,8 @@
 //
 
 #include "Advisor.h"
+#include "QDebug"
 
 Advisor::~Advisor() {
-
+    qInfo() << "Advisor " + this->getName() + " destructed";
 }

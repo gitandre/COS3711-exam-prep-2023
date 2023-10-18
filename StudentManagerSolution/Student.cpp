@@ -3,7 +3,8 @@
 //
 
 #include "Student.h"
+#include "QDebug"
 
 Student::~Student() {
-
+    qInfo() << "Student " + this->getName() + " destructed";
 }
