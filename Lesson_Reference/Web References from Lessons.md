@@ -1,7 +1,13 @@
 ## Web References from Lessons
 
 ---
+### o'Reilly
 [All lessons playlist - oreilly](https://learning.oreilly.com/playlists/8cd4e56f-1980-4a1f-a054-5f3d8d3fc77c/)
+
+### VoidRealms repos and code: 
+[qt6-core-beginners](https://github.com/voidrealms/qt6-core-beginners)  
+[qt6-core-intermediate](https://github.com/voidrealms/qt6-core-intermediate)  
+[qt6-core-advanced](https://github.com/voidrealms/qt6-core-advanced)  
 
 ---
 ### lesson 1 - Libraries
@@ -77,9 +83,16 @@
 [signalsandslots-syntaxe](https://doc.qt.io/qt-5/signalsandslots-syntaxes.html)  
 [new-signals-slots-syntax-in-qt5](https://woboq.com/blog/new-signals-slots-syntax-in-qt5.html)  
 
-Q_ENUM
+### E. Q_ENUM
 
 The Q_ENUMS macro is deprecated, use below...
 [Q_ENUM macro](https://doc.qt.io/qt-6/qobject.html#Q_ENUM)
+
+---
+
+### Lesson 3 - 
+
+#### A. xxx
+
 
 
