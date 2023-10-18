@@ -8,11 +8,18 @@
 
 #include <QString>
 #include "SolutionObjectType.h"
+#include <QObject>
+#include <QDebug>
 
-class Person {
+class Person: public QObject {
+    Q_OBJECT
 public:
-    Person()= default;
-    Person(int p_id, QString p_name, QString p_email): id(p_id), name(p_name), email(p_email){}
+    Person(){
+        qInfo() << "Person constructed using default";
+    }
+    Person(int p_id, QString p_name, QString p_email): id(p_id), name(p_name), email(p_email){
+        qInfo() << "Person constructed with params";
+    }
 
     int getId();
     void setId(int id);

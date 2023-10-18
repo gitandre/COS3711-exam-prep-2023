@@ -7,6 +7,7 @@
 #include <QMainWindow>
 #include <QStatusBar>
 #include <QDebug>
+#include <QMessageBox>
 #include "SolutionObjectType.h"
 using namespace std;
 
@@ -45,31 +46,45 @@ bool startDatabaseManager() {// instantiate the singleton dbManager and create a
     return result;
 }
 
-void testing(const QMainWindow &mainWindow) {// testing Student and Student
+bool testing( QMainWindow &mainWindow) {// testing Student and Student
 
+    bool res = false;
     Advisor a1("Addy Bloggs", "addy@test.com");
+    a1.setObjectName("a1");
+    cout << a1.objectName().toStdString() << endl;
     cout << a1.getId() << endl;
     cout << a1.getName().toStdString() << endl;
     cout << a1.getObjectType() << endl;
 
-    bool created3 = DatabaseManager::getInstance().createNew(a1);
+    bool created3 = DatabaseManager::getInstance().createNew(&a1);// pass in address
     if (created3) {
+        res = true;
         mainWindow.statusBar()->showMessage("Success: Test record Advisor creation OK");
     } else {
+        res = false;
         mainWindow.statusBar()->showMessage("Error: Test record Advisor creation FAILED");
     }
 
-    Student s1("Bloo", "Bloo@test.com");
-    cout << s1.getId() << endl;
-    cout << s1.getName().toStdString() << endl;
-    cout << s1.getObjectType() << endl;
+    if(res){
+        Student s1("Bloo", "Bloo@test.com");
+        s1.setObjectName("s1");
+        cout << s1.objectName().toStdString() << endl;
 
-    bool created2 = DatabaseManager::getInstance().createNew(s1);
-    if (created2) {
-        mainWindow.statusBar()->showMessage("Success: Test record Student creation OK");
-    } else {
-        mainWindow.statusBar()->showMessage("Error: Test record Student creation FAILED");
+        cout << s1.getId() << endl;
+        cout << s1.getName().toStdString() << endl;
+        cout << s1.getObjectType() << endl;
+
+        bool created2 = DatabaseManager::getInstance().createNew(&s1); // pass in address
+        if (created2) {
+            res = true;
+            mainWindow.statusBar()->showMessage("Success: Test record Student creation OK");
+        } else {
+            res = false;
+            mainWindow.statusBar()->showMessage("Error: Test record Student creation FAILED");
+        }
     }
+
+    return res;
 }
 
 int main(int argc, char *argv[]) {
@@ -85,7 +100,22 @@ int main(int argc, char *argv[]) {
         mainWindow.resize(800, 600);
 
         //testing
-        testing(mainWindow);
+//        testing(&mainWindow);
+
+        // example of create as ptr and connect and do something...
+        QPushButton *button = new QPushButton("Click to test DBManager", &mainWindow);
+        button->setGeometry(50, 50, 250, 40);
+        // Connect the button's clicked signal to a lambda function
+        QObject::connect(button, &QPushButton::clicked, [&]() {
+            if(testing(mainWindow)){
+                QMessageBox::information(&mainWindow, "Success: DB Manager", "tests passed OK :)");
+                button->hide();
+            } else {
+                QMessageBox::warning(&mainWindow, "Error: DB Manager", "tests failed :(");
+                button->setText("Click again to re-test");
+            }
+        });
+
 
 
         mainWindow.show();

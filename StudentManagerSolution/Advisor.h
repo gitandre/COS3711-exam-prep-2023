@@ -7,17 +7,22 @@
 
 #include "Person.h"
 
-class Advisor: public Person {
+class Advisor : public Person {
+Q_OBJECT
+
 public:
-    Advisor()= default;
-    explicit Advisor(QString name="", QString email="",int id=-1): Person(id, name, email) {}
+    Advisor() = default;
+
+    explicit Advisor(QString name = "", QString email = "", int id = -1) : Person(id, name, email) {}
 
     SolutionObjectType getObjectType() override {
         return objectType;
     }
+
     ~Advisor() override;
 
 private:
     SolutionObjectType objectType = SolutionObjectType::ADVISOR;
 };
+
 #endif //AdvisorMANAGERSOLUTION_ADVISOR_H

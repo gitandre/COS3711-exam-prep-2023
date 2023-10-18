@@ -59,8 +59,8 @@ public:
 
     static QString enumToString(SolutionObjectType enumObject);
 
-    bool createNew(Advisor p_advisor);
-    bool createNew(Student p_student);
+    bool createNew(Advisor *p_advisor);
+    bool createNew(Student *p_student);
     bool createXML(QString name, QString email, SolutionObjectType enumObject);
 
 private:

@@ -10,14 +10,18 @@
 #include "Person.h"
 #include "SolutionObjectType.h"
 
-class Student: public Person {
+class Student : public Person {
+Q_OBJECT
+
 public:
-    Student()= default;
-    explicit Student(QString name="", QString email="",int id=-1): Person(id, name, email) {}
+    Student() = default;
+
+    explicit Student(QString name = "", QString email = "", int id = -1) : Person(id, name, email) {}
 
     SolutionObjectType getObjectType() override {
         return objectType;
     }
+
     ~Student() override;
 
 private:
