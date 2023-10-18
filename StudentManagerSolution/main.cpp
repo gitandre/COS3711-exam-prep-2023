@@ -45,6 +45,33 @@ bool startDatabaseManager() {// instantiate the singleton dbManager and create a
     return result;
 }
 
+void testing(const QMainWindow &mainWindow) {// testing Student and Student
+
+    Advisor a1("Addy Bloggs", "addy@test.com");
+    cout << a1.getId() << endl;
+    cout << a1.getName().toStdString() << endl;
+    cout << a1.getObjectType() << endl;
+
+    bool created3 = DatabaseManager::getInstance().createNew(a1);
+    if (created3) {
+        mainWindow.statusBar()->showMessage("Success: Test record Advisor creation OK");
+    } else {
+        mainWindow.statusBar()->showMessage("Error: Test record Advisor creation FAILED");
+    }
+
+    Student s1("Bloo", "Bloo@test.com");
+    cout << s1.getId() << endl;
+    cout << s1.getName().toStdString() << endl;
+    cout << s1.getObjectType() << endl;
+
+    bool created2 = DatabaseManager::getInstance().createNew(s1);
+    if (created2) {
+        mainWindow.statusBar()->showMessage("Success: Test record Student creation OK");
+    } else {
+        mainWindow.statusBar()->showMessage("Error: Test record Student creation FAILED");
+    }
+}
+
 int main(int argc, char *argv[]) {
 
     if (startDatabaseManager()) {
@@ -57,40 +84,8 @@ int main(int argc, char *argv[]) {
         mainWindow.statusBar()->showMessage("Success: DatabaseManager started OK", 5000);
         mainWindow.resize(800, 600);
 
-        // Create a new test Student
-//        bool created = DatabaseManager::getInstance().createStudent("Test De Test", "test@test.co.za");
-//        if (created) {
-//            mainWindow.statusBar()->showMessage("Success: Test record creation OK");
-//        } else {
-//            mainWindow.statusBar()->showMessage("Error: Test record creation FAILED");
-//        }
-
-        // testing Student and Student
-
-        Advisor a1("Addy Bloggs", "addy@test.com");
-        cout << a1.getId() << endl;
-        cout << a1.getName().toStdString() << endl;
-        cout << a1.getObjectType() << endl;
-
-        bool created3 = DatabaseManager::getInstance().createNew(a1);
-        if (created3) {
-            mainWindow.statusBar()->showMessage("Success: Test record Advisor creation OK");
-        } else {
-            mainWindow.statusBar()->showMessage("Error: Test record Advisor creation FAILED");
-        }
-
-        Student s1("Bloo", "Bloo@test.com");
-        cout << s1.getId() << endl;
-        cout << s1.getName().toStdString() << endl;
-        cout << s1.getObjectType() << endl;
-
-        bool created2 = DatabaseManager::getInstance().createNew(s1);
-        if (created2) {
-            mainWindow.statusBar()->showMessage("Success: Test record Student creation OK");
-        } else {
-            mainWindow.statusBar()->showMessage("Error: Test record Student creation FAILED");
-        }
-
+        //testing
+        testing(mainWindow);
 
 
         mainWindow.show();

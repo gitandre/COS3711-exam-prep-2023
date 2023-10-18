@@ -7,7 +7,7 @@ These resources are meant for learning purposes and comes with no guarantee of a
 ---
 
 ### [Lesson 1 Libraries and OOP](#lesson-1-libraries-and-fundamentals)
-1. **OOP Fundamentals**
+1. **OOP Fundamentals** : ✅
 2. **UML*** Classes and Class Diagrams
 3. **Using Libraries**
 4. **Stack and Heap Memory**
@@ -72,6 +72,8 @@ These resources are meant for learning purposes and comes with no guarantee of a
 5. **Strategy** (Behavioral Pattern)
 6. **Adapter/Wrapper** (Structural Pattern)
 7. **Façade**  (Structural Pattern)
+8. **Other**
+   9. **serializer** - to store and load classes (persistence and storage)
 
 
 ### [Lesson 7: Concurrency in QT6](#lesson-7-concurrency)
