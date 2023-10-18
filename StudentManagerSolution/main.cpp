@@ -9,7 +9,11 @@
 #include <QDebug>
 #include <QMessageBox>
 #include "SolutionObjectType.h"
+#include "LogReceiverWidget.h"
 #include <QString>
+#include <QVBoxLayout>
+#include <QObject>
+#include <QTextEdit>
 
 using namespace std;
 
@@ -106,12 +110,18 @@ int main(int argc, char *argv[]) {
         mainWindow.statusBar()->showMessage("Success: DatabaseManager started OK", 5000);
         mainWindow.resize(800, 600);
 
-        //testing
-//        testing(&mainWindow);
+        auto *centralWidget = new QWidget();  // Create a central widget
+        auto *layout = new QVBoxLayout(); // Create a QVBoxLayout
 
-        // example of create as ptr and connect and do something...
-        QPushButton *button = new QPushButton("Click to test DBManager", &mainWindow);
+        auto *logReceiver = new LogReceiverWidget();
+
+//        logReceiver->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+
+
+//         example of create as ptr and connect and do something...
+        auto *button = new QPushButton("Click to test DBManager", &mainWindow);
         button->setGeometry(50, 50, 250, 40);
+//        button->setSizePolicy(QSizePolicy::w, QSizePolicy::Preferred);
         // Connect the button's clicked signal to a lambda function
         QObject::connect(button, &QPushButton::clicked, [&]() {
             if(testing(mainWindow)){
@@ -123,6 +133,13 @@ int main(int argc, char *argv[]) {
             }
         });
 
+        layout->addWidget(button);
+        layout->addWidget(logReceiver);
+        centralWidget->setLayout(layout);
+        mainWindow.setCentralWidget(centralWidget);
+
+//        DatabaseManager& dbManager = DatabaseManager::getInstance();
+//        QObject::connect(&dbManager, &DatabaseManager::sendMessage, logReceiver, &LogReceiverWidget::getMessage);
 
 
         mainWindow.show();

@@ -7,11 +7,14 @@
 #include "../SolutionObjectType.h"
 #include "../Advisor.h"
 #include "../Student.h"
+#include <QObject>
 
 using namespace std;
 
 // As a singleton :) vs simpleton :0
-class DatabaseManager {
+class DatabaseManager : public QObject {
+Q_OBJECT
+
 public:
 
     static QString xmlPrefixPath;
@@ -62,7 +65,11 @@ public:
 //    bool createNew(Advisor *p_advisor);
 //    bool createNew(Student *p_student);
     bool createNew(Person *p_person);
+
     bool createXML(QString name, QString email, SolutionObjectType enumObject);
+
+signals:
+    void sendMessage(QString message);
 
 private:
     DatabaseManager();

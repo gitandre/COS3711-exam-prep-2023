@@ -37,6 +37,8 @@ QString DatabaseManager::getXmlpathForObject(SolutionObjectType enumObject) {
 //}
 
 bool DatabaseManager::createNew(Person* p_person) {// &ddress passed in but receivers a pointer *
+    emit sendMessage(QString("createNew() called with " + p_person->getName()));
+
     QString name = p_person->getName();
     QString email = p_person->getEmail();
     auto enumObject = p_person->getObjectType();
@@ -182,6 +184,7 @@ QString DatabaseManager::enumToString(SolutionObjectType enumObject) {
 
 int DatabaseManager::getNextId(const QString &nodeName) {
 
+
     QString filePath = xmlPrefixPath + "/" + nodeName + ".xml";
     // Convert std string to QString
 
@@ -236,6 +239,7 @@ int DatabaseManager::getNextId(const QString &nodeName) {
 
     return maxId + 1;  // return the next available ID
 }
+
 
 
 

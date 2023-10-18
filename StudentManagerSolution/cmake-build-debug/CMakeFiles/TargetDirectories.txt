@@ -1,5 +1,0 @@
-C:/Users/User/Dropbox/bsc2023/a_next/COS3711-AdvancedProgramming/gitrepo/COS3711-exam-prep-2023/StudentManagerSolution/cmake-build-debug/CMakeFiles/StudentManagerSolution.dir
-C:/Users/User/Dropbox/bsc2023/a_next/COS3711-AdvancedProgramming/gitrepo/COS3711-exam-prep-2023/StudentManagerSolution/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/User/Dropbox/bsc2023/a_next/COS3711-AdvancedProgramming/gitrepo/COS3711-exam-prep-2023/StudentManagerSolution/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/User/Dropbox/bsc2023/a_next/COS3711-AdvancedProgramming/gitrepo/COS3711-exam-prep-2023/StudentManagerSolution/cmake-build-debug/CMakeFiles/StudentManagerSolution_autogen_timestamp_deps.dir
-C:/Users/User/Dropbox/bsc2023/a_next/COS3711-AdvancedProgramming/gitrepo/COS3711-exam-prep-2023/StudentManagerSolution/cmake-build-debug/CMakeFiles/StudentManagerSolution_autogen.dir

@@ -28,7 +28,9 @@ add_executable(StudentManagerSolution main.cpp
         Module.h
         dbManager/DatabaseManager.cpp
         dbManager/DatabaseManager.h
-        SolutionObjectType.h)
+        SolutionObjectType.h
+        LogReceiverWidget.cpp
+        LogReceiverWidget.h)
 target_link_libraries(StudentManagerSolution
         Qt::Core
         Qt::Gui

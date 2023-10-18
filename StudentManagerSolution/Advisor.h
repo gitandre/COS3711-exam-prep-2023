@@ -7,6 +7,7 @@
 
 #include "Person.h"
 #include "QDebug"
+#include <QObject>
 
 class Advisor : public Person {
 Q_OBJECT
