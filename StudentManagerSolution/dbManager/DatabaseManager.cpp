@@ -3,7 +3,7 @@
 #include <QFile>
 #include <QDebug>
 #include <QXmlStreamReader>
-
+#include <iostream>
 
 using namespace std;
 
@@ -21,6 +21,7 @@ DatabaseManager::DatabaseManager() = default;
 QString DatabaseManager::getXmlpathForObject(SolutionObjectType enumObject) {
 
     QString enumString = enumToString(enumObject);
+    cout << enumString.toStdString() << endl;
     QString fullxmlpath = xmlPrefixPath + enumString + ".xml";
 
     return fullxmlpath;
@@ -29,7 +30,7 @@ QString DatabaseManager::getXmlpathForObject(SolutionObjectType enumObject) {
 bool DatabaseManager::createNew(Advisor p_advisor) {
 
     QString name = p_advisor.getName();
-    QString email = p_advisor.getName();
+    QString email = p_advisor.getEmail();
     auto enumObject = p_advisor.getObjectType();
     bool res = createXML(name, email, enumObject, "Advisor");
     return res;
@@ -37,7 +38,7 @@ bool DatabaseManager::createNew(Advisor p_advisor) {
 
 bool DatabaseManager::createNew(Student p_student) {
     QString name = p_student.getName();
-    QString email = p_student.getName();
+    QString email = p_student.getEmail();
     auto enumObject = p_student.getObjectType();
     bool res = createXML(name, email, enumObject, "Student");
     return res;
@@ -168,7 +169,7 @@ QString DatabaseManager::enumToString(SolutionObjectType enumObject) {
         case SolutionObjectType::STUDENT:
             return {"Student"};
         case SolutionObjectType::ADVISOR:
-            return {"Student"};
+            return {"Advisor"};
         case SolutionObjectType::MODULE:
             return {"Module"};
         case SolutionObjectType::DEGREE:
