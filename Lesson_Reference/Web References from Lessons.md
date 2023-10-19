@@ -21,7 +21,9 @@
 ![img_10.png](img_10.png)
 ![img_11.png](img_11.png)
 
-ref: https://khalilstemmler.com/articles/uml-cheatsheet/
+ref: https://khalilstemmler.com/articles/uml-cheatsheet/  
+
+another non-lesson ref: https://www.guru99.com/uml-cheatsheet-reference-guide.html  
 
 3. [COS3711 - addtional resources](https://mymodules.dtls.unisa.ac.za/mod/folder/view.php?id=533468)
 
