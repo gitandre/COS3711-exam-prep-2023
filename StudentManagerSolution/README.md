@@ -42,3 +42,5 @@ This project aims to create a student management system using C++ and Qt6. The s
 
 ---
 ![img_2.png](images/img_2.png)
+
+---
