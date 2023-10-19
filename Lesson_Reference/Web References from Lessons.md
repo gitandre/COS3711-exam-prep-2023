@@ -15,6 +15,12 @@
 2. [OOP Beginners guide](https://dev.to/charanrajgolla/beginners-guide---object-oriented-programming)
 3. [Intro to OOP - geeks](https://www.geeksforgeeks.org/introduction-of-object-oriented-programming/)
 2. [UML class diagrams](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/)
+
+![img_10.png](img_10.png)
+![img_11.png](img_11.png)
+
+ref: https://khalilstemmler.com/articles/uml-cheatsheet/
+
 3. [COS3711 - addtional resources](https://mymodules.dtls.unisa.ac.za/mod/folder/view.php?id=533468)
 
 #### B. Libraries and Frameworks
