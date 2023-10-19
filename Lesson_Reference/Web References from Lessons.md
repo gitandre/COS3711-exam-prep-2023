@@ -1,5 +1,9 @@
 ## Web References from Lessons
 
+### Disclaimer
+
+These resources are meant for learning purposes and comes with no guarantee of accuracy or correctness. Please do your own research and use it as a tool to double-check your own work, attempts and understanding.
+
 ---
 ### o'Reilly
 [All lessons playlist - oreilly](https://learning.oreilly.com/playlists/8cd4e56f-1980-4a1f-a054-5f3d8d3fc77c/)
