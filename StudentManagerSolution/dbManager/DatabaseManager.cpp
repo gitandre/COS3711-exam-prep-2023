@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <QXmlStreamReader>
 #include <iostream>
+#include <QDateTime>
 
 using namespace std;
 
@@ -19,6 +20,7 @@ DatabaseManager &DatabaseManager::getInstance() {
 DatabaseManager::DatabaseManager() = default;
 
 QString DatabaseManager::getXmlpathForObject(SolutionObjectType enumObject) {
+    sendMessageProxy(QString("getXmlpathForObject() called"));
 
     QString enumString = enumToString(enumObject);
     cout << enumString.toStdString() << endl;
@@ -37,6 +39,8 @@ QString DatabaseManager::getXmlpathForObject(SolutionObjectType enumObject) {
 //}
 
 bool DatabaseManager::createNew(Person* p_person) {// &ddress passed in but receivers a pointer *
+    sendMessageProxy(QString("createNew() called with " + p_person->getName()));
+
     QString name = p_person->getName();
     QString email = p_person->getEmail();
     auto enumObject = p_person->getObjectType();
@@ -45,6 +49,7 @@ bool DatabaseManager::createNew(Person* p_person) {// &ddress passed in but rece
 }
 
 bool DatabaseManager::createXML(QString name, QString email, SolutionObjectType enumObject) {
+    sendMessageProxy(QString("createXML() called"));
     bool result = false;
     try {
 
@@ -182,6 +187,7 @@ QString DatabaseManager::enumToString(SolutionObjectType enumObject) {
 
 int DatabaseManager::getNextId(const QString &nodeName) {
 
+
     QString filePath = xmlPrefixPath + "/" + nodeName + ".xml";
     // Convert std string to QString
 
@@ -236,6 +242,16 @@ int DatabaseManager::getNextId(const QString &nodeName) {
 
     return maxId + 1;  // return the next available ID
 }
+
+void DatabaseManager::sendMessageProxy(QString message) {
+
+    QDateTime current = QDateTime::currentDateTime();
+    QString timestamp = current.toString("yyyy-MM-dd hh:mm:ss");
+    QString messageDate = timestamp + ": " + message + "\n";
+
+    emit sendMessage(messageDate);
+}
+
 
 
 
