@@ -16,6 +16,8 @@
 3. [Intro to OOP - geeks](https://www.geeksforgeeks.org/introduction-of-object-oriented-programming/)
 2. [UML class diagrams](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/)
 
+**Note: Not in lesson but useful:**  
+
 ![img_10.png](img_10.png)
 ![img_11.png](img_11.png)
 
