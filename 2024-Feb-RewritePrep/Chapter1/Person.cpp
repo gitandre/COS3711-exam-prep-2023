@@ -18,7 +18,7 @@ Person::Person(string n, int a, string o){
     occupation = o;
 }
 
-void Person::displayInfo() {
+void Person::displayInfo() const {
     cout << "\ndisplayInfo()" << endl;
     cout << "Name: " << name << ", Age: " << age << ", Occupation: " << occupation << endl;
 }

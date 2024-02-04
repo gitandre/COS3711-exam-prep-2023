@@ -17,7 +17,7 @@ public:
     Person();
     Person(string n, int a, string o);
 
-    void displayInfo();
+    void displayInfo() const;
     void haveBirthday();
 };
 
