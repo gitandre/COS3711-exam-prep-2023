@@ -6,10 +6,13 @@ using namespace std;
 int main() {
 
     // Testing Person Class
-    Person p1;
+    int x = 0;
+
+    Person p1(x);
     p1.displayInfo();
 
-    Person p2("Joe", 18, "Student");
+    x = 1976;
+    Person p2("Joe", 18,x,"Student");
     p2.displayInfo();
     p2.haveBirthday();
 

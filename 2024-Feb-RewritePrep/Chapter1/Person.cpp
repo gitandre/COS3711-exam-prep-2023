@@ -4,14 +4,14 @@
 #include <iostream>
 #include "Person.h"
 
-Person::Person(){
+Person::Person(int &val) : m_birthYear(val) {
     cout << "\nDefault constructor called" << endl;
     name = "-";
-    age = -1;
+    age = 0;
     occupation = "-";
 }
 
-Person::Person(string n, int a, string o){
+Person::Person(string n, int a, int &in_birthYear, string o) : m_birthYear(in_birthYear) {
     cout << "\nParameterized constructor called" << endl;
     name = n;
     age = a;
@@ -29,3 +29,5 @@ void Person::haveBirthday() {
     age++;
     cout << "Happy birthday, you were " << prev_age << " but now you are " << age << endl;
 }
+
+
