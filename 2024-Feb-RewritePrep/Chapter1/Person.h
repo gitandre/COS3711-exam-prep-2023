@@ -11,18 +11,30 @@ using namespace std;
 
 class Person {
 public:
-    string name;
-    int age;
-    int &m_birthYear;
-    string occupation;
 
-    explicit Person(int &val);
+    // Constructors
+    Person();
+    Person(string n, int a, string o);
+    ~Person();
 
-    Person(string n, int a, int &val, string o);
 
+    // Setters
+    void SetName(string n);
+    void SetAge(int a);
+    void SetOccupation(string o);
+
+    //Getters
+
+    // Functions
     void displayInfo() const;
-
     void haveBirthday();
+
+private:
+
+    // private members
+    string m_name;
+    int m_age;
+    string m_occupation;
 };
 
 

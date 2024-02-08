@@ -3,16 +3,17 @@
 
 using namespace std;
 
+
 int main() {
 
-    // Testing Person Class
-    int x = 0;
 
-    Person p1(x);
+    // Instantiate Person Class Def
+    Person p1;
     p1.displayInfo();
+    p1.haveBirthday();
 
-    x = 1976;
-    Person p2("Joe", 18,x,"Student");
+    // Instantiate Person Class Params
+    Person p2("Joe", 18,"Student");
     p2.displayInfo();
     p2.haveBirthday();
 
