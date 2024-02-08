@@ -6,7 +6,6 @@
 #define CHAPTER1_PERSON_H
 
 #include <string>
-
 using namespace std;
 
 class Person {
@@ -29,12 +28,22 @@ public:
     void displayInfo() const;
     void haveBirthday();
 
+    bool savePersonToFile();
+    bool readPersonFromFile();
+
+    // static function to return a static member
+    static const string& PersonExplanation();
+
+    static int PersonObjectCount();
+
 private:
 
     // private members
     string m_name;
     int m_age;
     string m_occupation;
+
+    static int s_count;
 };
 
 
