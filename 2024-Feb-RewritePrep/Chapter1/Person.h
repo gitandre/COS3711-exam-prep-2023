@@ -14,6 +14,7 @@ public:
     // Constructors
     Person();
     Person(string n, int a, string o);
+    Person(string n, int a, string o, Person* pPtr);
     ~Person();
 
 
@@ -44,6 +45,8 @@ private:
     string m_occupation;
 
     static int s_count;
+
+    Person* m_personPtr = nullptr;
 };
 
 

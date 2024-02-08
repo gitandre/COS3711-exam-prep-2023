@@ -56,6 +56,10 @@ Person::~Person() {
 
     s_count--;
     cout << "Person Objects = " << Person::PersonObjectCount() << endl;
+
+//    if (m_personPtr != nullptr) {
+//        delete m_personPtr;
+//    }
 }
 
 bool Person::savePersonToFile() {
@@ -103,6 +107,13 @@ int Person::PersonObjectCount() {
     cout << s_count << " objects in memory" << endl;
 
     return s_count;
+}
+
+Person::Person(string n, int a, string o, Person *pPtr) {
+    m_name = n;
+    m_age = a;
+    m_occupation = o;
+    m_personPtr = pPtr;
 }
 
 

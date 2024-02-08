@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Person.h"
+#include "SmartPointer.h"
 
 using namespace std;
 
@@ -49,7 +50,18 @@ int main() {
 
 //    DoReference();
 
-    DoPointers();
+//    DoPointers();
+
+//    Person* p1Ptr = new Person("joe",22,"swimmer");
+//
+//    p1Ptr->displayInfo();
+//    delete p1Ptr;
+
+    // Smart Pointer to auto cleanup after it is used
+    SmartPointer<Person> person1 (new Person());
+    person1->displayInfo();
+    person1->SetAge(25);
+    person1->haveBirthday();
 
     // Print static explanation about a class
 //    cout << Person::PersonExplanation() << endl;
