@@ -36,15 +36,38 @@ SingletonLogger &SingletonLogger::getInstance() {
     return instance;
 }
 
-void SingletonLogger::log(const string &message) {
+void SingletonLogger::log(string message) {
 
-    string logMsg = "[LOG] " + getCurrentTimestamp() + " | " + message + "\n";
+    SingletonLogger::log(LogLevel::DEBUG, message);
+}
+
+void SingletonLogger::log(LogLevel level, string message) {
+
+    string colorCode;
+    switch (level) {
+        case LogLevel::ERROR:
+            colorCode = "\033[31m"; // Red
+            break;
+        case LogLevel::DEBUG:
+            colorCode = "\033[34m"; // Blue
+            break;
+        case LogLevel::WARNING:
+            colorCode = "\033[33m"; // Yellow
+            break;
+        case LogLevel::SUCCESS:
+            colorCode = "\033[32m"; // Green
+            break;
+    }
+
+    string logMsg = "[" + logLevelToString(level) + "] " + getCurrentTimestamp() + " | " + message + "\n";
     m_logs.push_back(logMsg);
     cout << logMsg;
 }
 
+
+
 void SingletonLogger::getLogs() {
-    cout << "I am printing the logs" << endl;
+    cout << "I am printing all my SingletonLogger logs" << endl;
     for (const auto &logMsg: m_logs) {
         cout << logMsg;
     }

@@ -46,10 +46,12 @@ void DoPointers() {
 int main() {
 
     // Create a logger here using a Singleton pattern
-    SingletonLogger &logger = SingletonLogger::getInstance();
+    SingletonLogger& logger = SingletonLogger::getInstance();
 
     logger.log("I log via a singleton");
     logger.log("I log via a singleton also");
+
+    logger.log(SingletonLogger::LogLevel::ERROR, "I am an error :(");
 
 //    DoReference();
 

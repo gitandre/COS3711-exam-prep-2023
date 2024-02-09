@@ -46,7 +46,7 @@ public:
 
     static int PersonObjectCount();
 
-    static SingletonLogger &s_logger() {
+    static SingletonLogger& s_logger() {
         static SingletonLogger logger;
         return logger;
     }

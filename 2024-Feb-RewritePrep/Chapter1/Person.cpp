@@ -10,9 +10,8 @@ int Person::s_count = 0;
 
 Person::Person() {
 
-//    s_logger.log("Person::Person()");
-
-    s_logger().log("xxx");
+    string x = "foo";
+    s_logger().log(x);
 
     m_name = "";
     m_age = -1;
@@ -119,6 +118,7 @@ int Person::PersonObjectCount() {
 }
 
 Person::Person(string n, int a, string o, Person *pPtr) {
+
     m_name = n;
     m_age = a;
     m_occupation = o;
