@@ -15,15 +15,16 @@ class SingletonLogger {
 
 public:
     // Static member function to access the singleton instance
-    static SingletonLogger& getInstance();
+    static SingletonLogger &getInstance();
 
     // Logging function
-    void log(const string& message);
+    void log(const string &message);
 
     void getLogs();
 
     // Private constructor to prevent external instantiation
     SingletonLogger();
+
     // Private destructor to prevent deletion through pointers
     ~SingletonLogger();
 

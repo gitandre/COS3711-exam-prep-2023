@@ -7,16 +7,15 @@
 #include "SingletonLogger.h"
 
 
-
 SingletonLogger::~SingletonLogger() {
 
 }
 
-SingletonLogger::SingletonLogger(){
+SingletonLogger::SingletonLogger() {
 
 }
 
-std::string SingletonLogger::getCurrentTimestamp(){
+std::string SingletonLogger::getCurrentTimestamp() {
     // Get the current system time
     auto now = std::chrono::system_clock::now();
 
@@ -37,7 +36,7 @@ SingletonLogger &SingletonLogger::getInstance() {
     return instance;
 }
 
-void SingletonLogger::log(const string& message) {
+void SingletonLogger::log(const string &message) {
 
     string logMsg = "[LOG] " + getCurrentTimestamp() + " | " + message + "\n";
     m_logs.push_back(logMsg);
@@ -46,7 +45,7 @@ void SingletonLogger::log(const string& message) {
 
 void SingletonLogger::getLogs() {
     cout << "I am printing the logs" << endl;
-    for(const auto& logMsg: m_logs){
+    for (const auto &logMsg: m_logs) {
         cout << logMsg;
     }
 }

@@ -12,7 +12,7 @@ void print(const string &val) {
 void DoReference() {
 
     string food = "hamburger";
-    string& foodRef = food;
+    string &foodRef = food;
     cout << food << " " << foodRef << endl;
     cout << &food << " " << &foodRef << endl;
 
@@ -28,7 +28,7 @@ void DoReference() {
 
 }
 
-void printPtr(string* paramPtr){
+void printPtr(string *paramPtr) {
     cout << *paramPtr << endl;
     *paramPtr = "printed OK";
 }
@@ -36,7 +36,7 @@ void printPtr(string* paramPtr){
 void DoPointers() {
 
     string myString = "Andre";
-    string* stringPtr = &myString;
+    string *stringPtr = &myString;
     printPtr(stringPtr);
 
     cout << *stringPtr << endl;
@@ -46,7 +46,7 @@ void DoPointers() {
 int main() {
 
     // Create a logger here using a Singleton pattern
-    SingletonLogger& logger = SingletonLogger::getInstance();
+    SingletonLogger &logger = SingletonLogger::getInstance();
 
     logger.log("I log via a singleton");
     logger.log("I log via a singleton also");
@@ -61,7 +61,7 @@ int main() {
 //    delete p1Ptr;
 
     // Smart Pointer to auto cleanup after it is used
-    SmartPointer<Person> person1 (new Person());
+    SmartPointer<Person> person1(new Person());
     person1->displayInfo();
     person1->SetAge(25);
     person1->haveBirthday();
@@ -101,8 +101,8 @@ int main() {
 //    print("\nFinal Person object count");
 //    print("Person Objects = " + to_string(Person::PersonObjectCount()));
 
-    SingletonLogger& logger2 = SingletonLogger::getInstance();
-        logger2.log("I am on line 106");
+    SingletonLogger &logger2 = SingletonLogger::getInstance();
+    logger2.log("I am on line 106");
 
     return 0;
 }
