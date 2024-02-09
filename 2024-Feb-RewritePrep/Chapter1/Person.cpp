@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include "Person.h"
+#include "SingletonLogger/SingletonLogger.h"
 
 int Person::s_count = 0;
 
@@ -57,9 +58,8 @@ Person::~Person() {
     s_count--;
     cout << "Person Objects = " << Person::PersonObjectCount() << endl;
 
-//    if (m_personPtr != nullptr) {
-//        delete m_personPtr;
-//    }
+
+    SingletonLogger::getInstance().getLogs();
 }
 
 bool Person::savePersonToFile() {

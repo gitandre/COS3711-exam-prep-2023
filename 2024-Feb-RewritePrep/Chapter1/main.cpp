@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Person.h"
 #include "SmartPointer.h"
+#include "SingletonLogger/SingletonLogger.h"
 
 using namespace std;
 
@@ -46,7 +47,10 @@ int main() {
 
     // We will create a logger here later using Singleton
     // todo
+    SingletonLogger& logger = SingletonLogger::getInstance();
 
+    logger.log("I log via a singleton");
+    logger.log("I log via a singleton also");
 
 //    DoReference();
 
@@ -62,6 +66,8 @@ int main() {
     person1->displayInfo();
     person1->SetAge(25);
     person1->haveBirthday();
+
+    SingletonLogger::getInstance().log("I also log via a singleton");
 
     // Print static explanation about a class
 //    cout << Person::PersonExplanation() << endl;
@@ -96,6 +102,8 @@ int main() {
 //    print("\nFinal Person object count");
 //    print("Person Objects = " + to_string(Person::PersonObjectCount()));
 
+    SingletonLogger& logger2 = SingletonLogger::getInstance();
+        logger2.log("I am on line 106");
 
     return 0;
 }
