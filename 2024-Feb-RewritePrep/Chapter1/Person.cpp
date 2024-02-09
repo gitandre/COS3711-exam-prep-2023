@@ -7,56 +7,65 @@
 
 int Person::s_count = 0;
 
+
 Person::Person() {
-    cout << this << " Person::Person()" << endl;
+
+//    s_logger.log("Person::Person()");
+
+    s_logger().log("xxx");
+
     m_name = "";
     m_age = -1;
     m_occupation = "";
 
     s_count++;
-    cout << "Person Objects = " << Person::PersonObjectCount() << endl;
+
+//    s_logger.log("Person Objects = " + to_string(Person::PersonObjectCount()));
+
     // Prints out static Class Explanation
     // cout << Person::PersonExplanation() << endl;
 }
 
 Person::Person(string n, int a, string o) : m_name(n), m_age(a), m_occupation(o) {
 
-    cout << this << "Person::Person(string n, int a, string) Paramterised Person Constructed with " << n << ", " << a
-         << " and " << o << endl;
+//    s_logger.log(
+//            "Person::Person(string n, int a, string) Parameterized Person Constructed with " + n + " " + to_string(a) +
+//            " " + o);
+
     s_count++;
-    cout << "Person Objects = " << Person::PersonObjectCount() << endl;
+//    s_logger.log("Person Objects = " + to_string(Person::PersonObjectCount()));
     // Prints out static Class Explanation
     // cout << Person::PersonExplanation() << endl;
 }
 
 void Person::displayInfo() const {
 
-    cout << this << ".displayInfo()" << endl;
-    cout << "Name: " << m_name << ", Age: " << m_age << ", Occupation: " << m_occupation << endl;
+//    s_logger.log(".displayInfo()");
+//    s_logger.log("Name: " + m_name + ", Age: " + to_string(m_age) + ", Occupation: " + m_occupation);
 
 }
 
 void Person::haveBirthday() {
 
-    cout << this << ".haveBirthday()" << endl;
+//    s_logger.log(".haveBirthday()");
     if (m_age != -1) {
 
         int prev_age = m_age;
         m_age++;
 
-        cout << "Happy birthday, you were " << prev_age << " but now you are " << m_age << endl;
+//        s_logger.log("Happy birthday, you were " + to_string(prev_age) + " but now you are " + to_string(m_age));
     } else {
-        cout << "Please set the age, cannot increment -1" << endl;
+//        s_logger.log("Please set the age, cannot increment -1");
     }
 }
 
 Person::~Person() {
-    cout << this << ".Destructing Person started..." << endl;
+//    s_logger.log(".Destructing Person started...");
     displayInfo();
-    cout << this << ".Destructing Person ending..." << endl;
+//    s_logger.log(".Destructing Person ending...");
 
     s_count--;
-    cout << "Person Objects = " << Person::PersonObjectCount() << endl;
+//    s_logger.log("Person Objects = " + to_string(Person::PersonObjectCount()));
 
 
     SingletonLogger::getInstance().getLogs();
@@ -104,7 +113,7 @@ Usage:
 
 int Person::PersonObjectCount() {
 
-    cout << s_count << " objects in memory" << endl;
+//    s_logger.log( to_string(s_count) + " objects in memory");
 
     return s_count;
 }

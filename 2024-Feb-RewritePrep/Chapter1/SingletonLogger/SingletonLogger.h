@@ -22,12 +22,15 @@ public:
 
     void getLogs();
 
-private:
     // Private constructor to prevent external instantiation
     SingletonLogger();
-
     // Private destructor to prevent deletion through pointers
     ~SingletonLogger();
+
+
+private:
+
+    std::string getCurrentTimestamp();
 
     vector<string> m_logs;
 };

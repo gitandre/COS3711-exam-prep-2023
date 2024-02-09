@@ -6,6 +6,8 @@
 #define CHAPTER1_PERSON_H
 
 #include <string>
+#include "SingletonLogger/SingletonLogger.h"
+
 using namespace std;
 
 class Person {
@@ -37,7 +39,13 @@ public:
 
     static int PersonObjectCount();
 
+    static SingletonLogger& s_logger() {
+        static SingletonLogger logger;
+        return logger;
+    }
+
 private:
+
 
     // private members
     string m_name;
@@ -47,6 +55,7 @@ private:
     static int s_count;
 
     Person* m_personPtr = nullptr;
+
 };
 
 

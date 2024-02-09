@@ -45,8 +45,7 @@ void DoPointers() {
 
 int main() {
 
-    // We will create a logger here later using Singleton
-    // todo
+    // Create a logger here using a Singleton pattern
     SingletonLogger& logger = SingletonLogger::getInstance();
 
     logger.log("I log via a singleton");
