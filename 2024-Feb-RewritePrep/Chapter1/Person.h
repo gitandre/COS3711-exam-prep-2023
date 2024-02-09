@@ -48,6 +48,7 @@ public:
 
     static SingletonLogger& s_logger() {
         static SingletonLogger logger;
+//        logger
         return logger;
     }
 

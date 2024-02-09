@@ -2,12 +2,9 @@
 #include "Person.h"
 #include "SmartPointer.h"
 #include "SingletonLogger/SingletonLogger.h"
+#include "Connector.h"
 
 using namespace std;
-
-void print(const string &val) {
-    cout << "| print()" << &val << " " << val << " |" << endl;
-}
 
 void DoReference() {
 
@@ -52,6 +49,7 @@ int main() {
     logger.log("I log via a singleton also");
 
     logger.log(SingletonLogger::LogLevel::ERROR, "I am an error :(");
+
 
 //    DoReference();
 
@@ -106,5 +104,16 @@ int main() {
     SingletonLogger &logger2 = SingletonLogger::getInstance();
     logger2.log("I am on line 106");
 
+    cout << "Basic Signal and SLot =================================" << endl;
+    Sender* sender = new Sender();
+    auto* receiver = new Receiver();
+
+    QObject::connect(sender, &Sender::mySignal,receiver, &Receiver::mySlot);
+    sender->sendSomething();
+
+
+
+
     return 0;
 }
+

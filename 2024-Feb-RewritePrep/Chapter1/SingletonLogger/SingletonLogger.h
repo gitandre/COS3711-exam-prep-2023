@@ -5,13 +5,16 @@
 #ifndef CHAPTER1_SINGLETONLOGGER_H
 #define CHAPTER1_SINGLETONLOGGER_H
 
+#include <QObject>
+#include <QDebug>
 #include <iostream>
 #include <string>
 #include <vector>
 
 using namespace std;
 
-class SingletonLogger {
+class SingletonLogger: public QObject {
+    Q_OBJECT
 
 public:
 
@@ -31,18 +34,26 @@ public:
 
     void getLogs();
 
+
+
+
+
     // Private constructor to prevent external instantiation
     SingletonLogger();
 
     // Private destructor to prevent deletion through pointers
     ~SingletonLogger();
 
+public slots:
+    static void mySlot();
 
 private:
 
     std::string getCurrentTimestamp();
 
     vector<string> m_logs;
+
+    vector<QObject*> m_qObjects;
 
     // Helper function to convert LogLevel enum to string
     static string logLevelToString(LogLevel level) {

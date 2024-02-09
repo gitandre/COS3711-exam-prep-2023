@@ -4,6 +4,7 @@
 
 #include <chrono>
 #include <iomanip>
+#include <QMetaMethod>
 #include "SingletonLogger.h"
 
 
@@ -65,12 +66,16 @@ void SingletonLogger::log(LogLevel level, string message) {
 }
 
 
-
 void SingletonLogger::getLogs() {
-    cout << "I am printing all my SingletonLogger logs" << endl;
+    cout << "\nI am printing all my SingletonLogger logs" << endl;
     for (const auto &logMsg: m_logs) {
         cout << logMsg;
     }
+}
+
+
+void SingletonLogger::mySlot() {
+    cout << "xxx" << endl;
 }
 
 
