@@ -37,6 +37,7 @@ SingletonLogger &SingletonLogger::getInstance() {
     return instance;
 }
 
+
 void SingletonLogger::log(string message) {
 
     SingletonLogger::log(LogLevel::DEBUG, message);
@@ -74,8 +75,8 @@ void SingletonLogger::getLogs() {
 }
 
 
-void SingletonLogger::mySlot() {
-    cout << "xxx" << endl;
+void SingletonLogger::mySlot(int value) {
+    cout << "\nSingletonLogger my slot received = "  << value << endl;
 }
 
 

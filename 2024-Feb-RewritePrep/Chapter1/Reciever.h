@@ -17,7 +17,7 @@ Q_OBJECT
 public slots:
 
     void mySlot(int value) {
-        cout << value ;
+        cout << "Receiver.mySlot = " << value ;
     }
 };
 

@@ -44,6 +44,7 @@ int main() {
 
     // Create a logger here using a Singleton pattern
     SingletonLogger& logger = SingletonLogger::getInstance();
+    SingletonLogger* singletonLogger = &logger;
 
     logger.log("I log via a singleton");
     logger.log("I log via a singleton also");
@@ -104,11 +105,16 @@ int main() {
     SingletonLogger &logger2 = SingletonLogger::getInstance();
     logger2.log("I am on line 106");
 
-    cout << "Basic Signal and SLot =================================" << endl;
+    cout << "\nBasic Signal and Slot =================================" << endl;
     Sender* sender = new Sender();
     auto* receiver = new Receiver();
+    SingletonLogger* ptr = &logger2;
 
+    // connect sender to Receiver
     QObject::connect(sender, &Sender::mySignal,receiver, &Receiver::mySlot);
+
+    // connect Sender to Logger :)
+    QObject::connect(sender, &Sender::mySignal,singletonLogger,&SingletonLogger::mySlot);
     sender->sendSomething();
 
 

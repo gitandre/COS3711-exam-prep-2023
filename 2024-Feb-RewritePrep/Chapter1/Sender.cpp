@@ -20,7 +20,7 @@ int Sender::generateRandomNumber(int a, int b) {
 }
 void Sender::sendSomething() {
 
-    int rando = generateRandomNumber();
+    int rando = generateRandomNumber(1,5);
 
     for(int i = 0; i <= rando;i++){
         emit mySignal(i);

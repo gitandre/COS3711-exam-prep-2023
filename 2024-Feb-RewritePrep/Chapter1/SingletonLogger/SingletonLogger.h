@@ -44,8 +44,9 @@ public:
     // Private destructor to prevent deletion through pointers
     ~SingletonLogger();
 
+
 public slots:
-    static void mySlot();
+    void mySlot(int value);
 
 private:
 
@@ -65,6 +66,7 @@ private:
             default: return "UNKNOWN";
         }
     }
+
 
 
 };
