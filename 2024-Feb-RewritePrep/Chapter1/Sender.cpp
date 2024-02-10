@@ -25,7 +25,7 @@ int Sender::generateRandomNumber(int a, int b) {
 }
 void Sender::sendSomething() {
 
-    int max = 3;
+    int max = 1;
     int counter = 0;
     while(counter <= max){
 

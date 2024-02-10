@@ -3,6 +3,14 @@
 #include "SmartPointer.h"
 #include "SingletonLogger/SingletonLogger.h"
 #include "Connector.h"
+#include "polymorphism/ShapePureVirtual.h"
+#include "polymorphism/Shape.h"
+#include "polymorphism/Circle.h"
+#include "polymorphism/Square.h"
+
+void doSignalsAndSlots(SingletonLogger *singletonLogger);
+
+SingletonLogger *doLogging();
 
 using namespace std;
 
@@ -40,11 +48,47 @@ void DoPointers() {
 
 }
 
+// templated function to draw all shapes regardless of Shape type
+template<typename T>
+void DrawShape(T* shape){
+    shape->Draw();
+}
+
 int main() {
 
-    // Create a logger here using a Singleton pattern
-    SingletonLogger& logger = SingletonLogger::getInstance();
-    SingletonLogger* singletonLogger = &logger;
+    bool logging = false;
+    bool signalAndSlots = false;
+
+    if (logging) {
+        SingletonLogger *singletonLogger = doLogging();
+
+        if (signalAndSlots) {
+
+            doSignalsAndSlots(singletonLogger);
+        }
+    }
+
+    qDebug() << "--Polymorphism start---";
+
+    // ShapePureVirtual spv; // note: cannot instantiate as is an abstract class
+    Shape s;
+    DrawShape(&s);
+
+    Circle c;
+    DrawShape(&c);
+
+    Square sq;
+    DrawShape(&sq);
+
+    qDebug() << "--Polymorphism end---";
+
+    qDebug() << "--ENDt---";
+    return 0;
+}
+
+SingletonLogger *doLogging() {// Create a logger here using a Singleton pattern
+    SingletonLogger &logger = SingletonLogger::getInstance();
+    SingletonLogger *singletonLogger = &logger;
 
     logger.log("I log via a singleton");
     logger.log("I log via a singleton also");
@@ -104,23 +148,24 @@ int main() {
 
     SingletonLogger &logger2 = SingletonLogger::getInstance();
     logger2.log("I am on line 106");
+    return singletonLogger;
+}
 
+void doSignalsAndSlots(SingletonLogger *singletonLogger) {
     cout << "\nBasic Signal and Slot =================================" << endl;
-    Sender* sender = new Sender();
-    Receiver* receiver = new Receiver();
+    Sender *sender = new Sender();
+    Receiver *receiver = new Receiver();
 //    SingletonLogger* ptr = &logger2;
 
     // connect sender to Receiver
-    QObject::connect(sender, &Sender::mySignal,receiver, &Receiver::mySlot);
+    QObject::connect(sender, &Sender::mySignal, receiver, &Receiver::mySlot);
 
     // connect Sender to Logger :)
-    QObject::connect(sender, &Sender::mySignal,singletonLogger,&SingletonLogger::mySlot);
+    QObject::connect(sender, &Sender::mySignal, singletonLogger, &SingletonLogger::mySlot);
 
     // Send some signals
     sender->sendSomething();
-
-
-    cout << "--end---" << endl;
-    return 0;
 }
+
+
 

@@ -27,6 +27,9 @@ add_executable(Chapter1 main.cpp
         Reciever.h
         Connector.cpp
         Connector.h
+        polymorphism/ShapePureVirtual.h
+        polymorphism/Shape.h
+        polymorphism/Square.h
 )
 target_link_libraries(Chapter1
         Qt::Core

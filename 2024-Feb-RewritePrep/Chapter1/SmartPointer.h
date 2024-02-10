@@ -7,7 +7,7 @@
 
 template<typename T>
 class SmartPointer {
-    T *m_ptr;
+    T* m_ptr;
 
     SmartPointer(const SmartPointer &) = delete;
 
@@ -15,7 +15,7 @@ class SmartPointer {
 
 public:
 
-     explicit SmartPointer(T *p = 0) : m_ptr(p) {}
+     explicit SmartPointer(T* p = 0) : m_ptr(p) {}
 
     ~SmartPointer() { delete m_ptr; }
 
