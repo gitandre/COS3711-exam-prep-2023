@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.26)
-project(Chapter8)
+project(Chapter8-QtcpServer)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_AUTOMOC ON)
@@ -10,11 +10,20 @@ set(CMAKE_PREFIX_PATH "C:/Qt/6.6.1/mingw_64/bin")
 
 find_package(Qt6 COMPONENTS
         Core
+        Gui
+        Widgets
+        Xml
+        Network
         REQUIRED)
 
-add_executable(Chapter8 main.cpp)
-target_link_libraries(Chapter8
+add_executable(Chapter8-QtcpServer main.cpp)
+target_link_libraries(Chapter8-QtcpServer
         Qt::Core
+        Qt::Gui
+        Qt::Widgets
+        Qt6::Xml
+        Qt6::Core
+        Qt6::Network
 )
 
 if (WIN32 AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
