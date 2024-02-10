@@ -107,19 +107,20 @@ int main() {
 
     cout << "\nBasic Signal and Slot =================================" << endl;
     Sender* sender = new Sender();
-    auto* receiver = new Receiver();
-    SingletonLogger* ptr = &logger2;
+    Receiver* receiver = new Receiver();
+//    SingletonLogger* ptr = &logger2;
 
     // connect sender to Receiver
     QObject::connect(sender, &Sender::mySignal,receiver, &Receiver::mySlot);
 
     // connect Sender to Logger :)
     QObject::connect(sender, &Sender::mySignal,singletonLogger,&SingletonLogger::mySlot);
+
+    // Send some signals
     sender->sendSomething();
 
 
-
-
+    cout << "--end---" << endl;
     return 0;
 }
 

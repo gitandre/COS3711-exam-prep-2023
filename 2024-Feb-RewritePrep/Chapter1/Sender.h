@@ -7,6 +7,7 @@
 
 #include <QObject>
 #include <QDebug>
+#include "SingletonLogger/SingletonLogger.h"
 
 class Sender : public QObject {
 Q_OBJECT
@@ -14,12 +15,13 @@ Q_OBJECT
     static int generateRandomNumber(int a = 1, int b = 100);
 
 public:
-    Sender()= default;
+    Sender(){
+    }
     void sendSomething();
 
 signals:
 
-    void mySignal(int value);
+    void mySignal( std::string val);
 
 };
 

@@ -13,8 +13,8 @@
 
 using namespace std;
 
-class SingletonLogger: public QObject {
-    Q_OBJECT
+class SingletonLogger : public QObject {
+Q_OBJECT
 
 public:
 
@@ -30,13 +30,10 @@ public:
 
     // Logging function
     void log(string message);
+
     void log(LogLevel level, string message);
 
     void getLogs();
-
-
-
-
 
     // Private constructor to prevent external instantiation
     SingletonLogger();
@@ -46,29 +43,37 @@ public:
 
 
 public slots:
-    void mySlot(int value);
+
+    void mySlot(const std::string& value);
 
 private:
 
+    const std::string LOGFILEDIR = "../files/log.txt";
     std::string getCurrentTimestamp();
 
     vector<string> m_logs;
 
-    vector<QObject*> m_qObjects;
+    vector<QObject *> m_qObjects;
 
     // Helper function to convert LogLevel enum to string
     static string logLevelToString(LogLevel level) {
         switch (level) {
-            case LogLevel::ERROR: return "ERROR";
-            case LogLevel::DEBUG: return "DEBUG";
-            case LogLevel::WARNING: return "WARNING";
-            case LogLevel::SUCCESS: return "SUCCESS";
-            default: return "UNKNOWN";
+            case LogLevel::ERROR:
+                return "ERROR";
+            case LogLevel::DEBUG:
+                return "DEBUG";
+            case LogLevel::WARNING:
+                return "WARNING";
+            case LogLevel::SUCCESS:
+                return "SUCCESS";
+            default:
+                return "UNKNOWN";
         }
     }
 
+    void WriteToLogFile(const string &value, const QObject *obj);
 
-
+    void WriteToLogFile(const string &value, const string senderName);
 };
 
 

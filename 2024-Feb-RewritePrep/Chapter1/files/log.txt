@@ -1,0 +1,35 @@
+[log]2024-02-10 10:43:48 | [DEBUG] 2024-02-10 10:43:48 | I log via a singleton | from=Direct Logging
+[log]2024-02-10 10:43:48 | [DEBUG] 2024-02-10 10:43:48 | I log via a singleton also | from=Direct Logging
+[log]2024-02-10 10:43:48 | [ERROR] 2024-02-10 10:43:48 | I am an error :( | from=Direct Logging
+[log]2024-02-10 10:43:48 | [DEBUG] 2024-02-10 10:43:48 | foo | from=Direct Logging
+[log]2024-02-10 10:43:48 | [DEBUG] 2024-02-10 10:43:48 | I also log via a singleton | from=Direct Logging
+[log]2024-02-10 10:43:48 | [DEBUG] 2024-02-10 10:43:48 | I am on line 106 | from=Direct Logging
+[log]2024-02-10 10:43:48 | 0 | from=Sender
+[log]2024-02-10 10:43:48 | 1 | from=Sender
+[log]2024-02-10 10:43:49 | 0 | from=Sender
+[log]2024-02-10 10:43:49 | 1 | from=Sender
+[log]2024-02-10 10:43:49 | 2 | from=Sender
+[log]2024-02-10 10:43:54 | 0 | from=Sender
+[log]2024-02-10 10:43:54 | 1 | from=Sender
+[log]2024-02-10 10:43:54 | 2 | from=Sender
+[log]2024-02-10 10:43:54 | 3 | from=Sender
+[log]2024-02-10 10:43:57 | 0 | from=Sender
+[log]2024-02-10 10:43:57 | 1 | from=Sender
+[log]2024-02-10 10:43:57 | 2 | from=Sender
+[log] 2024-02-10 10:45:34 | '[DEBUG] 2024-02-10 10:45:34 | I log via a singleton' | from: Direct Logging
+[log] 2024-02-10 10:45:34 | '[DEBUG] 2024-02-10 10:45:34 | I log via a singleton also' | from: Direct Logging
+[log] 2024-02-10 10:45:34 | '[ERROR] 2024-02-10 10:45:34 | I am an error :(' | from: Direct Logging
+[log] 2024-02-10 10:45:34 | '[DEBUG] 2024-02-10 10:45:34 | foo' | from: Direct Logging
+[log] 2024-02-10 10:45:34 | '[DEBUG] 2024-02-10 10:45:34 | I also log via a singleton' | from: Direct Logging
+[log] 2024-02-10 10:45:34 | '[DEBUG] 2024-02-10 10:45:34 | I am on line 106' | from: Direct Logging
+[log] 2024-02-10 10:45:34 | '0' | from: Sender
+[log] 2024-02-10 10:45:34 | '1' | from: Sender
+[log] 2024-02-10 10:45:37 | '0' | from: Sender
+[log] 2024-02-10 10:45:37 | '1' | from: Sender
+[log] 2024-02-10 10:45:37 | '2' | from: Sender
+[log] 2024-02-10 10:45:42 | '0' | from: Sender
+[log] 2024-02-10 10:45:42 | '1' | from: Sender
+[log] 2024-02-10 10:45:46 | '0' | from: Sender
+[log] 2024-02-10 10:45:46 | '1' | from: Sender
+[log] 2024-02-10 10:45:46 | '2' | from: Sender
+[log] 2024-02-10 10:45:46 | '3' | from: Sender

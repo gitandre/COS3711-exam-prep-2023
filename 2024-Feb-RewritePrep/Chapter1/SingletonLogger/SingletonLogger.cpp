@@ -6,7 +6,10 @@
 #include <iomanip>
 #include <QMetaMethod>
 #include "SingletonLogger.h"
+#include <iostream>
+#include <fstream>
 
+using namespace std;
 
 SingletonLogger::~SingletonLogger() {
 
@@ -43,7 +46,7 @@ void SingletonLogger::log(string message) {
     SingletonLogger::log(LogLevel::DEBUG, message);
 }
 
-void SingletonLogger::log(LogLevel level, string message) {
+void SingletonLogger::log(LogLevel level, string val) {
 
     string colorCode;
     switch (level) {
@@ -61,7 +64,8 @@ void SingletonLogger::log(LogLevel level, string message) {
             break;
     }
 
-    string logMsg = "[" + logLevelToString(level) + "] " + getCurrentTimestamp() + " | " + message + "\n";
+    string logMsg = "[" + logLevelToString(level) + "] " + getCurrentTimestamp() + " | " + val;
+    WriteToLogFile(logMsg, "Direct Logging");
     m_logs.push_back(logMsg);
     cout << logMsg;
 }
@@ -75,8 +79,25 @@ void SingletonLogger::getLogs() {
 }
 
 
-void SingletonLogger::mySlot(int value) {
-    cout << "\nSingletonLogger my slot received = "  << value << endl;
+void SingletonLogger::mySlot(const std::string &value) {
+
+    QObject *obj = sender();
+    string name =  obj->metaObject()->className();
+
+    // Save to file
+    WriteToLogFile(value, name);
+
+}
+
+void SingletonLogger::WriteToLogFile(const string &value, const string senderName) {
+
+    ofstream outfile(LOGFILEDIR, ios_base::app); // Open in append mode
+    if (!outfile) {
+        cerr << "Error opening file for appending." << endl;
+    }
+
+    outfile << "[log] " + getCurrentTimestamp() + " | '" + value + "' | from: " << senderName << endl;
+    outfile.close();
 }
 
 

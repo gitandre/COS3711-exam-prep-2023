@@ -16,8 +16,11 @@ Q_OBJECT
 
 public slots:
 
-    void mySlot(int value) {
-        cout << "Receiver.mySlot = " << value ;
+    void mySlot(std::string value) {
+
+        QObject* obj = sender();
+
+        cout << "\nReceiver my slot received = " << value << " from " << obj->metaObject()->className() << endl;
     }
 };
 
