@@ -10,16 +10,16 @@ using namespace std;
 int main(int argc, char *argv[]) {
     QCoreApplication a(argc, argv);
 
-    QProcess process;
-
     // start the cmd program and pass the following args
-    process.start("cmd.exe", QStringList() << "/C" << "dir");
+    QProcess process1;
+    process1.start("cmd.exe", QStringList() << "/C" << "dir");
 
-    if (process.waitForFinished()) {
-        qDebug() << "Process finished. Output:";
+    if (process1.waitForFinished()) {
 
+        cout << "Process1 finished \nOutput:\n" << endl;
+        cout << "-----------------------------" << endl;
         // Create a text stream to read from the process's standard output
-        QTextStream stream(&process);
+        QTextStream stream(&process1);
         while (!stream.atEnd()) {
             QString line = stream.readLine();
 
@@ -27,7 +27,19 @@ int main(int argc, char *argv[]) {
             cout << line.toStdString() << endl;
         }
     } else {
-        qDebug() << "Process failed:" << process.errorString();
+        qDebug() << "Process1 failed:" << process1.errorString();
     }
+
+    QProcess process2;
+
+    // Start notepad for no reason at all :)
+    process2.start("notepad.exe");
+    if (process2.waitForFinished()) {
+        qDebug() << "Process2 finished";
+    } else {
+        qDebug() << "Process2 failed:" << process2.errorString();
+    }
+
+
     return a.exec();
 }
