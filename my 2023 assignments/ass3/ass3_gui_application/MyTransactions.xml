@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Transactions>
+    <transaction user="bob" date="2023-03-17T11:50:22.760">
+        <lineitem name="An example book BookFoo" quantity="1" type="Book"/>
+        <lineitem name="An example magazine MagFoo" quantity="2" type="Magazine"/>
+        <lineitem name="An example book BookBar" quantity="3" type="Book"/>
+        <lineitem name="An example magazine MagBar" quantity="4" type="Magazine"/>
+    </transaction>
+    <transaction user="alice" date="2023-03-18T12:30:45.000">
+        <lineitem name="An example book BookFoo" quantity="2" type="Book"/>
+        <lineitem name="An example magazine MagFoo" quantity="4" type="Magazine"/>
+        <lineitem name="An example book BookBar" quantity="6" type="Book"/>
+        <lineitem name="An example magazine MagBar" quantity="8" type="Magazine"/>
+    </transaction>
+    <transaction user="bob" date="2023-03-17T01:50:22.760">
+        <lineitem name="An example book BookFoo" quantity="100" type="Book"/>
+        <lineitem name="An example magazine MagFoo" quantity="101" type="Magazine"/>
+        <lineitem name="An example book BookBar" quantity="102" type="Book"/>
+        <lineitem name="An example magazine MagBar" quantity="103" type="Magazine"/>
+    </transaction>
+    <transaction user="alice" date="2023-03-18T02:30:45.000">
+        <lineitem name="An example book BookFoo" quantity="1000" type="Book"/>
+        <lineitem name="An example magazine MagFoo" quantity="2000" type="Magazine"/>
+        <lineitem name="An example book BookBar" quantity="3000" type="Book"/>
+        <lineitem name="An example magazine MagBar" quantity="4000" type="Magazine"/>
+    </transaction>
+</Transactions>

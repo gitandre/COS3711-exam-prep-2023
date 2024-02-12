@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+    <item>
+        <name>An example book BookFoo</name>
+        <type>Book</type>
+    </item>
+    <item>
+        <name>An example book BookBar</name>
+        <type>Book</type>
+    </item>
+    <item>
+        <name>An example magazine MagFoo</name>
+        <type>Magazine</type>
+    </item>
+    <item>
+        <name>An example magazine MagBar</name>
+        <type>Magazine</type>
+    </item>
+</items>
