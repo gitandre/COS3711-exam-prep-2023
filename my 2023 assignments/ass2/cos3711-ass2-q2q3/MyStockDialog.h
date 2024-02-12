@@ -1,5 +1,5 @@
 //
-// Created by andre on 2023/07/09.
+// Created by jonny boo on 2023/07/09.
 //
 
 #ifndef COS3711_ASS2_Q2_MYSTOCKDIALOG_H

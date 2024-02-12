@@ -40,7 +40,7 @@ void printPtr(string *paramPtr) {
 
 void DoPointers() {
 
-    string myString = "Andre";
+    string myString = "jonny boo";
     string *stringPtr = &myString;
     printPtr(stringPtr);
 
