@@ -3,46 +3,71 @@
 // SingletonExample.cpp
 #include <iostream>
 
-// Singleton Class
-class Singleton {
+// SingletonLogger Class
+class SingletonLogger {
 private:
     // Private Constructor
-    Singleton() {
-        std::cout << "Singleton Instance Created" << std::endl;
+    SingletonLogger() {
+        std::cout << "SingletonLogger Instance Created" << std::endl;
     }
 
     // Private Copy Constructor and Assignment Operator
-    Singleton(const Singleton&) = delete;
-    Singleton& operator=(const Singleton&) = delete;
+    SingletonLogger(const SingletonLogger &) = delete;
+
+    SingletonLogger &operator=(const SingletonLogger &) = delete;
 
 public:
     // Public Method to access the single instance
     // Returns a reference
-    static Singleton& getInstance() {
-        static Singleton instance;  // Guaranteed to be lazy-initialized and destroyed correctly
+    static SingletonLogger &getInstance() {
+        static SingletonLogger instance;  // Guaranteed to be lazy-initialized and destroyed correctly
         return instance;
     }
 
-    void show() {
-        std::cout << "I am a Singleton not a simpleton!!!, with address = " << &this->getInstance() << std::endl;
+    void slog(std::string msg) {
+        std::cout << "I am a SingletonLogger not a simpleton!!!, with address = " << &this->getInstance() << " [log ->] "
+                  << msg << std::endl;
     }
 };
 
+// A base class that includes a reference to the Singleton logger
+class BaseAny {
+public:
+    BaseAny() {}
+
+    void doLogging(std::string msg) {
+        std::cout << "BaseAny.doLogging()..." << std::endl;
+        m_logger.slog(msg);
+    }
+
+private:
+    SingletonLogger &m_logger = SingletonLogger::getInstance();
+};
+
+// Inherits from BaseAny and hence can log using the
+class Foo : public BaseAny {
+
+public:
+    Foo() {}
+
+};
 
 int main(int argc, char *argv[]) {
     QCoreApplication a(argc, argv);
 
-        // Try to get Singleton instances
-    Singleton& s1 = Singleton::getInstance();
-    Singleton& s2 = Singleton::getInstance();
+    Foo f1;
+    f1.doLogging("I am f1 logging");
+    // Try to get SingletonLogger instances
+    SingletonLogger &s1 = SingletonLogger::getInstance();
+    SingletonLogger &s2 = SingletonLogger::getInstance();
 
     // Check if they are the same instance
     if (&s1 == &s2) {
         std::cout << "Both are the same instance" << std::endl;
     }
 
-    s1.show();
-    s2.show();
+    s1.slog("s1 logs");
+    s2.slog("s2 logs");
 
     return QCoreApplication::exec();
 }
